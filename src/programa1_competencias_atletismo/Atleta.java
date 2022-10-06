@@ -1,8 +1,11 @@
- package programa1_competencias_atletismo;
+package programa1_competencias_atletismo;
+import java.util.ArrayList;
 
 public class Atleta extends Visor {
+    
     private String nombre,apellido1,apellido2,identificacion,pais,
                    fechanacimiento,correo,telefono;
+    private ArrayList<Marca> marcas;
     
     Atleta(String pNombre,String pApellido1,String pApellido2,String pIdentificacion,
             String pPais, String pFechanacimiento,String pCorreo,String pTelefono){
@@ -14,5 +17,6 @@ public class Atleta extends Visor {
         fechanacimiento = pFechanacimiento;
         correo = pCorreo;
         telefono = pTelefono;
+        marcas = new ArrayList();
     }
 }

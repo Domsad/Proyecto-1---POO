@@ -11,8 +11,5 @@ package programa1_competencias_atletismo;
 
 public class Programa1_competencias_atletismo {
 
-    public static void main(String[] args) {
-
-    }
-    
+    public static void main(String[] args) {}    
 }
