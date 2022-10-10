@@ -1,20 +1,15 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
+Instituto Tecnológico de Costa Rica - Campus Central Cartago
+Escuela de Ingeniería en Computación
+Programación Orientada a Objetos
+Proyecto #1 - Competencias de Atletismo
+Autores: Dominic Casares Aguirre & Mariana Viquez Monge
+Profesor : William Mata Rodríguez
+II Semestre - 17/11/2022
  */
 package programa1_competencias_atletismo;
 
-/**
- *
- * @author domin
- */
 public class Programa1_competencias_atletismo {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
+    public static void main(String[] args) {}    
 }
