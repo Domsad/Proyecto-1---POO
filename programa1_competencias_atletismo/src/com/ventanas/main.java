@@ -23,6 +23,9 @@ public class main extends javax.swing.JFrame {
         categorias.add("U15");
         categorias.add("U18");
         categorias.add("U20");
+        jComboBox6.addItem("Masculino");
+        jComboBox6.addItem("Femenino");
+        jComboBox6.addItem("Ambos");
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -57,12 +60,12 @@ public class main extends javax.swing.JFrame {
         label_agregar_nombreprueba = new javax.swing.JLabel();
         textfield_agregar_nombreprueba = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        textfield_agregar_generoprueba = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        textfield_agregar_categoriaprueba = new javax.swing.JTextField();
         button_agregar_disciplina = new javax.swing.JButton();
         button_agregarprueba = new javax.swing.JButton();
         button_eliminarprueba = new javax.swing.JButton();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jComboBox6 = new javax.swing.JComboBox<>();
         panel_disciplinas_consultar = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -86,7 +89,6 @@ public class main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(770, 430));
-        setPreferredSize(new java.awt.Dimension(770, 430));
         setResizable(false);
         setSize(new java.awt.Dimension(770, 430));
         getContentPane().setLayout(null);
@@ -221,7 +223,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonesdisciplinas.add(button_disciplinas_agregar);
-        button_disciplinas_agregar.setBounds(10, 40, 138, 28);
+        button_disciplinas_agregar.setBounds(10, 40, 138, 25);
 
         button_disciplinas_consultar.setText("Consultar y Listado");
         button_disciplinas_consultar.addActionListener(new java.awt.event.ActionListener() {
@@ -230,7 +232,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonesdisciplinas.add(button_disciplinas_consultar);
-        button_disciplinas_consultar.setBounds(10, 100, 138, 28);
+        button_disciplinas_consultar.setBounds(10, 100, 138, 25);
 
         button_disciplinas_modificar.setText("Modificar");
         button_disciplinas_modificar.addActionListener(new java.awt.event.ActionListener() {
@@ -239,7 +241,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonesdisciplinas.add(button_disciplinas_modificar);
-        button_disciplinas_modificar.setBounds(10, 160, 138, 28);
+        button_disciplinas_modificar.setBounds(10, 160, 138, 25);
 
         button_disciplinas_borrar.setText("Borrar");
         button_disciplinas_borrar.addActionListener(new java.awt.event.ActionListener() {
@@ -248,7 +250,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonesdisciplinas.add(button_disciplinas_borrar);
-        button_disciplinas_borrar.setBounds(10, 210, 138, 28);
+        button_disciplinas_borrar.setBounds(10, 210, 138, 25);
 
         Panel_disciplinas.add(Panel_botonesdisciplinas);
         Panel_botonesdisciplinas.setBounds(0, 40, 150, 320);
@@ -269,7 +271,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_disciplinas_agregar.add(textfield_agregar_nombredisciplina);
-        textfield_agregar_nombredisciplina.setBounds(140, 20, 120, 28);
+        textfield_agregar_nombredisciplina.setBounds(140, 20, 120, 22);
 
         jList1.addMouseWheelListener(new java.awt.event.MouseWheelListener() {
             public void mouseWheelMoved(java.awt.event.MouseWheelEvent evt) {
@@ -291,31 +293,15 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_disciplinas_agregar.add(textfield_agregar_nombreprueba);
-        textfield_agregar_nombreprueba.setBounds(140, 100, 120, 28);
+        textfield_agregar_nombreprueba.setBounds(140, 100, 120, 22);
 
         jLabel3.setText("Género:");
         panel_disciplinas_agregar.add(jLabel3);
         jLabel3.setBounds(90, 140, 90, 16);
 
-        textfield_agregar_generoprueba.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textfield_agregar_generopruebaActionPerformed(evt);
-            }
-        });
-        panel_disciplinas_agregar.add(textfield_agregar_generoprueba);
-        textfield_agregar_generoprueba.setBounds(140, 140, 120, 28);
-
         jLabel4.setText("Categoría:");
         panel_disciplinas_agregar.add(jLabel4);
         jLabel4.setBounds(80, 180, 90, 16);
-
-        textfield_agregar_categoriaprueba.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textfield_agregar_categoriapruebaActionPerformed(evt);
-            }
-        });
-        panel_disciplinas_agregar.add(textfield_agregar_categoriaprueba);
-        textfield_agregar_categoriaprueba.setBounds(140, 180, 120, 28);
 
         button_agregar_disciplina.setBackground(new java.awt.Color(0, 153, 153));
         button_agregar_disciplina.setText("Agregar Disciplina");
@@ -345,7 +331,13 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_disciplinas_agregar.add(button_eliminarprueba);
-        button_eliminarprueba.setBounds(30, 260, 130, 28);
+        button_eliminarprueba.setBounds(30, 260, 130, 25);
+
+        panel_disciplinas_agregar.add(jComboBox5);
+        jComboBox5.setBounds(140, 180, 120, 24);
+
+        panel_disciplinas_agregar.add(jComboBox6);
+        jComboBox6.setBounds(140, 140, 120, 24);
 
         jTabbedPane2.addTab("tab1", panel_disciplinas_agregar);
 
@@ -391,7 +383,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_disciplinas_modificar.add(jTextField1);
-        jTextField1.setBounds(130, 120, 210, 28);
+        jTextField1.setBounds(130, 120, 210, 22);
 
         jLabel6.setText("Nuevo Nombre:");
         panel_disciplinas_modificar.add(jLabel6);
@@ -405,7 +397,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_disciplinas_modificar.add(jButton1);
-        jButton1.setBounds(130, 200, 150, 28);
+        jButton1.setBounds(130, 200, 150, 25);
 
         jTabbedPane2.addTab("tab3", panel_disciplinas_modificar);
 
@@ -426,7 +418,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_disciplinas_borrar.add(jButton2);
-        jButton2.setBounds(160, 120, 120, 28);
+        jButton2.setBounds(160, 120, 120, 25);
 
         jTabbedPane2.addTab("tab4", panel_disciplinas_borrar);
 
@@ -485,12 +477,16 @@ public class main extends javax.swing.JFrame {
 
     private void button_disciplinas_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_disciplinas_agregarActionPerformed
         jTabbedPane2.setSelectedIndex(1);
+        jComboBox5.removeAllItems();
+        for(String categoria:categorias){
+            jComboBox5.addItem(categoria);
+        }
     }//GEN-LAST:event_button_disciplinas_agregarActionPerformed
 
     private void button_disciplinas_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_disciplinas_consultarActionPerformed
         jTabbedPane2.setSelectedIndex(2);
         ArrayList<Disciplina> disciplinas = mainregister.getRegistroDisciplinas();
-        jComboBox1.removeAllItems();;
+        jComboBox1.removeAllItems();
         for(Disciplina disciplina:disciplinas){
             jComboBox1.addItem(disciplina.toString());
         }
@@ -530,14 +526,6 @@ public class main extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_textfield_agregar_nombrepruebaActionPerformed
 
-    private void textfield_agregar_generopruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_agregar_generopruebaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textfield_agregar_generopruebaActionPerformed
-
-    private void textfield_agregar_categoriapruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textfield_agregar_categoriapruebaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_textfield_agregar_categoriapruebaActionPerformed
-
     private void button_agregar_disciplinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_agregar_disciplinaActionPerformed
         ArrayList<Disciplina> disciplinas = mainregister.getRegistroDisciplinas();
         if(textfield_agregar_nombredisciplina.getText().equals("")){
@@ -561,8 +549,7 @@ public class main extends javax.swing.JFrame {
                     jList1.setModel(modelopruebasDisciplina);
                     textfield_agregar_nombredisciplina.setText("");
                     textfield_agregar_nombreprueba.setText("");
-                    textfield_agregar_generoprueba.setText("");
-                    textfield_agregar_categoriaprueba.setText("");
+
                 }else{
                     JOptionPane.showMessageDialog(null, "Debe almenos una disciplina!",
                     "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -591,22 +578,11 @@ public class main extends javax.swing.JFrame {
         }
         
         if(!ExisteEnLista(pruebasDisciplina,textfield_agregar_nombreprueba.getText(),
-            textfield_agregar_generoprueba.getText(),textfield_agregar_categoriaprueba.getText())){
-            if(textfield_agregar_generoprueba.getText().toLowerCase().equals("masculino") ||
-                textfield_agregar_generoprueba.getText().toLowerCase().equals("femenino") ||
-                textfield_agregar_generoprueba.getText().toLowerCase().equals("ambos") ){
+            jComboBox6.getSelectedItem().toString(),jComboBox5.getSelectedItem().toString())){
                 
-                boolean categoriavalida = false;
-                
-                for(String categoria:categorias){//valida si puso una categoria valida
-                    if(textfield_agregar_categoriaprueba.getText().toLowerCase().equals(categoria.toLowerCase())){
-                        categoriavalida = true;
-                    }
-                }
-                
-                if(categoriavalida){
+
                     Prueba nueva = new Prueba(textfield_agregar_nombreprueba.getText(),
-                    textfield_agregar_generoprueba.getText(),textfield_agregar_categoriaprueba.getText());
+                    jComboBox6.getSelectedItem().toString(),jComboBox5.getSelectedItem().toString());
                     pruebasDisciplina.add(nueva);
                     
                     modelopruebasDisciplina.addElement(nueva.toString());
@@ -614,16 +590,7 @@ public class main extends javax.swing.JFrame {
                     
                     JOptionPane.showMessageDialog(null,"Prueba agregada con exito!");
                     textfield_agregar_nombreprueba.setText("");
-                    textfield_agregar_generoprueba.setText("");
-                    textfield_agregar_categoriaprueba.setText("");
-                }else{
-                    JOptionPane.showMessageDialog(null, "Categoria Invalida!",
-                    "ERROR", JOptionPane.ERROR_MESSAGE);
-                }
-            }else{
-                JOptionPane.showMessageDialog(null, "El genero debe ser Masculino, Femenino o Ambos!",
-                "ERROR", JOptionPane.ERROR_MESSAGE);
-            }
+            
         }else{
             JOptionPane.showMessageDialog(null, "Esa prueba ya esta agregada!",
             "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -652,7 +619,7 @@ public class main extends javax.swing.JFrame {
             jComboBox2.removeAllItems();
             ArrayList<Prueba> pruebas = new ArrayList<>();
             for(Disciplina disciplina:mainregister.getRegistroDisciplinas()){
-                if(disciplina.toString() == jComboBox1.getSelectedItem().toString()){
+                if(disciplina.toString().equals(jComboBox1.getSelectedItem().toString())){
                     pruebas = disciplina.getListaPruebas();
                     break;
                 }
@@ -772,6 +739,8 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -793,8 +762,6 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JPanel panel_disciplinas_modificar;
     private javax.swing.JPanel panel_disciplinastop;
     private javax.swing.JScrollPane scrollpane_pruebasdisciplina;
-    private javax.swing.JTextField textfield_agregar_categoriaprueba;
-    private javax.swing.JTextField textfield_agregar_generoprueba;
     private javax.swing.JTextField textfield_agregar_nombredisciplina;
     private javax.swing.JTextField textfield_agregar_nombreprueba;
     // End of variables declaration//GEN-END:variables
