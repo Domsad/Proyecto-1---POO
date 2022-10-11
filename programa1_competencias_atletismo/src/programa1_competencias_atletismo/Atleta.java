@@ -7,8 +7,8 @@ public class Atleta extends Visor {
                    fechanacimiento,correo,telefono;
     private ArrayList<Marca> marcas;
     
-    Atleta(String pNombre,String pApellido1,String pApellido2,String pIdentificacion,
-            String pPais, String pFechanacimiento,String pCorreo,String pTelefono){
+    public Atleta(String pNombre,String pApellido1,String pApellido2,String pIdentificacion,
+        String pPais, String pFechanacimiento,String pCorreo,String pTelefono){
         nombre = pNombre;
         apellido1 = pApellido1;
         apellido2 = pApellido2;
