@@ -3,10 +3,12 @@ import java.util.ArrayList;
 
 public class Disciplina {
     private String nombre;
+    private String medida;
     private ArrayList<Prueba> listaPruebas;
     
-    public Disciplina(String pNombre){
+    public Disciplina(String pNombre,String pMedida){
         nombre = pNombre;
+        medida = pMedida;
         listaPruebas = new ArrayList<>();
     }
     public Disciplina(String pNombre, ArrayList<Prueba> pListaPruebas){
