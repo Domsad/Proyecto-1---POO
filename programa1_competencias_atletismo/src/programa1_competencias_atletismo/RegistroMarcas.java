@@ -5,11 +5,13 @@ public class RegistroMarcas {
     private ArrayList<Atleta> registroAtletas;
     private ArrayList<Disciplina> registroDisciplinas;
     private ArrayList<Visor> registroVisores;
+    private ArrayList<Competencia> registroCompetencias;
     
     public RegistroMarcas(){
         registroAtletas = new ArrayList<>();
         registroDisciplinas = new ArrayList<>();
         registroVisores = new ArrayList<>();
+        registroCompetencias = new ArrayList<>();
     }
     public ArrayList<Atleta> getRegistroAtletas(){
         return registroAtletas;
@@ -19,6 +21,9 @@ public class RegistroMarcas {
     }
     public ArrayList<Visor> getRegistroVisores(){
         return registroVisores;
+    }
+    public ArrayList<Competencia> getRegistroCompetencias(){
+        return registroCompetencias;
     }
     
     public void agregarAtleta(Atleta atleta){
