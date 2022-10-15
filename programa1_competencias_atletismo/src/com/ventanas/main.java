@@ -5,6 +5,7 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 import programa1_competencias_atletismo.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -46,6 +47,9 @@ public class main extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel33 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
+        jPanel1 = new javax.swing.JPanel();
         Panel_main = new javax.swing.JPanel();
         Panel_menu = new javax.swing.JPanel();
         label_menuPrincipal = new javax.swing.JLabel();
@@ -182,8 +186,36 @@ public class main extends javax.swing.JFrame {
         jTextField14 = new javax.swing.JTextField();
         jLabel43 = new javax.swing.JLabel();
         panel_competencias_consultar = new javax.swing.JPanel();
+        jComboBox12 = new javax.swing.JComboBox<>();
+        jLabel40 = new javax.swing.JLabel();
+        jComboBox13 = new javax.swing.JComboBox<>();
+        jLabel44 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         panel_competencias_modificar = new javax.swing.JPanel();
+        jLabel45 = new javax.swing.JLabel();
+        jComboBox14 = new javax.swing.JComboBox<>();
+        jList3 = new javax.swing.JList<>();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jComboBox15 = new javax.swing.JComboBox<>();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jTextField15 = new javax.swing.JTextField();
+        jLabel48 = new javax.swing.JLabel();
+        jTextField16 = new javax.swing.JTextField();
+        jLabel49 = new javax.swing.JLabel();
+        jTextField17 = new javax.swing.JTextField();
+        jLabel50 = new javax.swing.JLabel();
+        jTextField18 = new javax.swing.JTextField();
+        jLabel51 = new javax.swing.JLabel();
+        jTextField10 = new javax.swing.JTextField();
+        jButton11 = new javax.swing.JButton();
         panel_competencias_borrar = new javax.swing.JPanel();
+        jLabel52 = new javax.swing.JLabel();
+        jComboBox16 = new javax.swing.JComboBox<>();
+        jButton12 = new javax.swing.JButton();
         Panel_registros = new javax.swing.JPanel();
         Panel_listado = new javax.swing.JPanel();
         Panel_configuracion = new javax.swing.JPanel();
@@ -194,6 +226,13 @@ public class main extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
 
         jLabel33.setText("jLabel33");
+
+        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(800, 430));
@@ -887,7 +926,7 @@ public class main extends javax.swing.JFrame {
 
         jLabel32.setText("Nombre:");
         panel_competencias_agregar.add(jLabel32);
-        jLabel32.setBounds(60, 30, 48, 16);
+        jLabel32.setBounds(57, 30, 60, 16);
         panel_competencias_agregar.add(jTextField9);
         jTextField9.setBounds(120, 20, 200, 28);
 
@@ -933,7 +972,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_competencias_agregar.add(button_agregar_competencia);
-        button_agregar_competencia.setBounds(180, 270, 71, 28);
+        button_agregar_competencia.setBounds(167, 270, 100, 28);
 
         jLabel38.setText("Fecha Final:");
         panel_competencias_agregar.add(jLabel38);
@@ -964,12 +1003,172 @@ public class main extends javax.swing.JFrame {
         jTabbedPane4.addTab("tab2", panel_competencias_agregar);
 
         panel_competencias_consultar.setLayout(null);
+
+        panel_competencias_consultar.add(jComboBox12);
+        jComboBox12.setBounds(100, 20, 200, 26);
+
+        jLabel40.setText("Competencia:");
+        panel_competencias_consultar.add(jLabel40);
+        jLabel40.setBounds(10, 20, 90, 20);
+
+        panel_competencias_consultar.add(jComboBox13);
+        jComboBox13.setBounds(100, 100, 200, 26);
+
+        jLabel44.setText("Disciplinas:");
+        panel_competencias_consultar.add(jLabel44);
+        jLabel44.setBounds(20, 100, 80, 16);
+
+        jButton8.setBackground(new java.awt.Color(0, 153, 153));
+        jButton8.setText("Consultar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        panel_competencias_consultar.add(jButton8);
+        jButton8.setBounds(150, 60, 90, 28);
+
+        jTextArea1.setEditable(false);
+        jTextArea1.setColumns(20);
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setRows(5);
+        jTextArea1.setWrapStyleWord(true);
+        jTextArea1.setCursor(null);
+        jTextArea1.setFocusable(false);
+        jScrollPane2.setViewportView(jTextArea1);
+
+        panel_competencias_consultar.add(jScrollPane2);
+        jScrollPane2.setBounds(10, 140, 360, 160);
+
         jTabbedPane4.addTab("tab3", panel_competencias_consultar);
 
         panel_competencias_modificar.setLayout(null);
+
+        jLabel45.setText("Competencia:");
+        panel_competencias_modificar.add(jLabel45);
+        jLabel45.setBounds(10, 40, 100, 16);
+
+        jComboBox14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox14ActionPerformed(evt);
+            }
+        });
+        panel_competencias_modificar.add(jComboBox14);
+        jComboBox14.setBounds(90, 30, 130, 26);
+        panel_competencias_modificar.add(jList3);
+        jList3.setBounds(230, 80, 130, 170);
+
+        jButton9.setBackground(new java.awt.Color(0, 255, 0));
+        jButton9.setText("Agregar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        panel_competencias_modificar.add(jButton9);
+        jButton9.setBounds(210, 270, 80, 28);
+
+        jButton10.setBackground(new java.awt.Color(255, 0, 0));
+        jButton10.setText("Eliminar");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        panel_competencias_modificar.add(jButton10);
+        jButton10.setBounds(290, 270, 80, 28);
+
+        jComboBox15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox15ActionPerformed(evt);
+            }
+        });
+        panel_competencias_modificar.add(jComboBox15);
+        jComboBox15.setBounds(230, 30, 140, 26);
+
+        jLabel46.setText("Disciplina");
+        panel_competencias_modificar.add(jLabel46);
+        jLabel46.setBounds(270, 10, 80, 16);
+
+        jLabel47.setText("País:");
+        panel_competencias_modificar.add(jLabel47);
+        jLabel47.setBounds(30, 120, 50, 16);
+        panel_competencias_modificar.add(jTextField15);
+        jTextField15.setBounds(90, 120, 120, 28);
+
+        jLabel48.setText("Lugar:");
+        panel_competencias_modificar.add(jLabel48);
+        jLabel48.setBounds(30, 160, 50, 16);
+
+        jTextField16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField16ActionPerformed(evt);
+            }
+        });
+        panel_competencias_modificar.add(jTextField16);
+        jTextField16.setBounds(90, 150, 120, 28);
+
+        jLabel49.setText("Fecha Inicial:");
+        panel_competencias_modificar.add(jLabel49);
+        jLabel49.setBounds(10, 190, 100, 16);
+
+        jTextField17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField17ActionPerformed(evt);
+            }
+        });
+        panel_competencias_modificar.add(jTextField17);
+        jTextField17.setBounds(90, 180, 120, 28);
+
+        jLabel50.setText("Fecha Final:");
+        panel_competencias_modificar.add(jLabel50);
+        jLabel50.setBounds(10, 230, 90, 16);
+
+        jTextField18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField18ActionPerformed(evt);
+            }
+        });
+        panel_competencias_modificar.add(jTextField18);
+        jTextField18.setBounds(90, 220, 120, 28);
+
+        jLabel51.setText("Nombre:");
+        panel_competencias_modificar.add(jLabel51);
+        jLabel51.setBounds(20, 80, 60, 16);
+        panel_competencias_modificar.add(jTextField10);
+        jTextField10.setBounds(90, 80, 120, 28);
+
+        jButton11.setBackground(new java.awt.Color(0, 153, 153));
+        jButton11.setText("Guardar");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        panel_competencias_modificar.add(jButton11);
+        jButton11.setBounds(50, 270, 140, 28);
+
         jTabbedPane4.addTab("tab4", panel_competencias_modificar);
 
         panel_competencias_borrar.setLayout(null);
+
+        jLabel52.setText("Competencia:");
+        panel_competencias_borrar.add(jLabel52);
+        jLabel52.setBounds(10, 100, 110, 16);
+
+        panel_competencias_borrar.add(jComboBox16);
+        jComboBox16.setBounds(100, 86, 240, 40);
+
+        jButton12.setBackground(new java.awt.Color(204, 0, 51));
+        jButton12.setText("Eliminar");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        panel_competencias_borrar.add(jButton12);
+        jButton12.setBounds(140, 160, 110, 30);
+
         jTabbedPane4.addTab("tab5", panel_competencias_borrar);
 
         Panel_competencias.add(jTabbedPane4);
@@ -1631,10 +1830,7 @@ public class main extends javax.swing.JFrame {
                     jComboBox10.addItem(atleta1.getIdentificacion());
                     jComboBox11.addItem(atleta1.getIdentificacion());
                 }
-                
             }
- 
-       
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
@@ -1650,15 +1846,28 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_button_competencias_agregarActionPerformed
 
     private void button_competencias_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_competencias_consultarActionPerformed
-        // TODO add your handling code here:
+        jTabbedPane4.setSelectedIndex(2);
+        jTextArea1.setText("");
+        jComboBox12.removeAllItems();
+        for (Competencia competencia:mainregister.getRegistroCompetencias()){
+           jComboBox12.addItem(competencia.getNombre());
+        }
     }//GEN-LAST:event_button_competencias_consultarActionPerformed
 
     private void button_competencias_modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_competencias_modificarActionPerformed
-        // TODO add your handling code here:
+        jTabbedPane4.setSelectedIndex(3);
+        jComboBox14.removeAllItems();
+        for (Competencia competencia:mainregister.getRegistroCompetencias()){
+           jComboBox14.addItem(competencia.getNombre());
+        }
     }//GEN-LAST:event_button_competencias_modificarActionPerformed
 
     private void button_competencias_borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_competencias_borrarActionPerformed
-        // TODO add your handling code here:
+        jTabbedPane4.setSelectedIndex(4);
+        jComboBox16.removeAllItems();
+        for(Competencia competencia:mainregister.getRegistroCompetencias()){
+            jComboBox16.addItem(competencia.getNombre());
+        }
     }//GEN-LAST:event_button_competencias_borrarActionPerformed
      
     public void definirSecuencial(){
@@ -1686,9 +1895,8 @@ public class main extends javax.swing.JFrame {
         if(jTextField9.getText().equals("") ||
             jTextField11.getText().equals("") || jTextField12.getText().equals("")||
             jTextField13.getText().equals("") || jTextField14.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "El nombre del atleta debe contener de 2 a 20 caracteres!",
+            JOptionPane.showMessageDialog(null, "No deje espacios en blanco!",
             "ERROR", JOptionPane.ERROR_MESSAGE);
-            flag = false;
         }else{
             String nombre = "";
             String pais = "";
@@ -1742,8 +1950,6 @@ public class main extends javax.swing.JFrame {
                 //crea los objetos de tipo fecha con java.time
                 LocalDate Finicial = LocalDate.parse(fechainicial, DateTimeFormatter.ofPattern("d/M/yyyy"));;
                 LocalDate Ffinal = LocalDate.parse(fechafinal, DateTimeFormatter.ofPattern("d/M/yyyy") );
-                System.out.println(Finicial);
-                System.out.println(Ffinal);
                 if(Ffinal.isBefore(Finicial)){
                     JOptionPane.showMessageDialog(null, " La fecha inicial debe ser menor o igual a la final!",
                     "ERROR", JOptionPane.ERROR_MESSAGE);
@@ -1800,11 +2006,7 @@ public class main extends javax.swing.JFrame {
 
     private void jTextField8KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField8KeyPressed
         String numero= jTextField8.getText();
-        
         int size = numero.length();
-        
-        char c = evt.getKeyChar();
-        
         if(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9'){
             if(size<2){
                 jTextField8.setEditable(true);
@@ -1828,6 +2030,272 @@ public class main extends javax.swing.JFrame {
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField12ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        if(jComboBox12.getSelectedItem() == null){
+                JOptionPane.showMessageDialog(null, "Debe selecccionar una Competencia para consultar!",
+                "ERROR", JOptionPane.ERROR_MESSAGE);
+        }else{
+            Competencia selected = new Competencia();
+            for(Competencia competencia:mainregister.getRegistroCompetencias()){
+                if(competencia.getNombre().equals(jComboBox12.getSelectedItem())){
+                    selected = competencia;
+                    break;
+                }  
+            }
+            jComboBox13.removeAllItems();
+            for(Disciplina disciplina:selected.getRegistroDisciplinas()){
+                jComboBox13.addItem(disciplina.getNombre());
+            }
+            jTextArea1.setText(selected.toString()); 
+        } 
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+
+        try{
+            Competencia selected = new Competencia();
+            for(Competencia competencia:mainregister.getRegistroCompetencias()){
+                if(competencia.getNombre().equals(jComboBox14.getSelectedItem().toString())){
+                    selected = competencia;
+                    break;
+                }
+            }
+            DefaultListModel modelo = new DefaultListModel(); 
+            for(Disciplina disciplina:selected.getRegistroDisciplinas()){
+                modelo.addElement(disciplina);
+            }
+            String eliminar = modelo.getElementAt(jList3.getSelectedIndex()).toString();
+            for (Disciplina disciplina:selected.getRegistroDisciplinas()){
+                if(disciplina.toString().equals(eliminar)){
+                    selected.getRegistroDisciplinas().remove(disciplina);
+                    modelo.removeElementAt(jList3.getSelectedIndex());
+                    jList3.setModel(modelo);
+                    JOptionPane.showMessageDialog(null,"Disciplina Eliminada con exito!");
+                    break;
+                }
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Debe elegir una disciplina antes de eliminar",
+            "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        if(jComboBox15.getSelectedItem() != null){
+            Disciplina disciplinaselected = new Disciplina("","");
+            for(Disciplina disciplina: mainregister.getRegistroDisciplinas()){
+                if(disciplina.getNombre().equals(jComboBox15.getSelectedItem().toString())){
+                    disciplinaselected = disciplina;
+                    break;
+                }
+            }
+            Competencia competenciaselected = new Competencia();
+            for(Competencia competencia: mainregister.getRegistroCompetencias()){
+                if(competencia.getNombre().equals(jComboBox14.getSelectedItem().toString())){
+                    competenciaselected = competencia;
+                }
+            }
+            boolean existe = false;
+            for(Disciplina disciplina:competenciaselected.getRegistroDisciplinas()){
+                if(disciplina.getNombre().equals(disciplinaselected.getNombre())){
+                    existe = true;
+                    JOptionPane.showMessageDialog(null, "Esa disciplina ya está en la competencia!",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+            if(!existe){
+                competenciaselected.getRegistroDisciplinas().add(disciplinaselected);
+                DefaultListModel modelo = new DefaultListModel(); 
+                for(Disciplina disciplina:competenciaselected.getRegistroDisciplinas()){
+                    modelo.addElement(disciplina);
+                }
+                jList3.setModel(modelo);
+                JOptionPane.showMessageDialog(null, "Disciplina Agregada con éxito!");
+            }  
+        }
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jComboBox15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox15ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox15ActionPerformed
+
+    private void jComboBox14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox14ActionPerformed
+        if(jComboBox14.getSelectedItem() != null){
+            Competencia selected = new Competencia();
+            for(Competencia competencia:mainregister.getRegistroCompetencias()){
+               if(competencia.getNombre().equals(jComboBox14.getSelectedItem().toString())){
+                   selected = competencia;
+                   break;
+                }
+            }
+            jComboBox15.removeAllItems();
+            for(Disciplina disciplina:mainregister.getRegistroDisciplinas()){
+                jComboBox15.addItem(disciplina.toString());
+            }
+            DefaultListModel modelo = new DefaultListModel(); 
+            for(Disciplina disciplina:selected.getRegistroDisciplinas()){
+                modelo.addElement(disciplina);
+            }
+            jList3.setModel(modelo);  
+        }
+
+    }//GEN-LAST:event_jComboBox14ActionPerformed
+
+    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField16ActionPerformed
+
+    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField17ActionPerformed
+
+    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField18ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        try{
+            jComboBox14.getSelectedItem().equals(null);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una competencia primero!",
+            "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        String nombre = "";
+        String pais = "";
+        String lugar = "";
+        String fechainicial = "";
+        String fechafinal = "";
+        boolean flag = true;
+        if(!jTextField10.getText().equals("")){
+            if(jTextField10.getText().length() < 5 || jTextField10.getText().length() > 60){
+                JOptionPane.showMessageDialog(null, "El nombre de la competencia debe contener de 5 a 60 caracteres!",
+                "ERROR", JOptionPane.ERROR_MESSAGE);
+                flag = false;
+            }else{
+                nombre = jTextField10.getText();
+            }
+        }
+        if(!jTextField15.getText().equals("")){
+            if(jTextField15.getText().length() != 3){
+                JOptionPane.showMessageDialog(null, "El pais debe tener 3 caracteres!",
+                "ERROR", JOptionPane.ERROR_MESSAGE);
+                flag = false;
+            }else{
+                pais = jTextField15.getText();
+            }
+        }
+        if(!jTextField16.getText().equals("")){
+            if(jTextField16.getText().length() < 5 || jTextField16.getText().length() > 60){
+                JOptionPane.showMessageDialog(null, "El lugar debe tener de 5 a 60 caracteres!",
+                "ERROR", JOptionPane.ERROR_MESSAGE);
+                flag = false;
+            }else{
+                lugar = jTextField16.getText();
+            }
+        }
+        if(!jTextField17.getText().equals("")){
+            if(!validarFecha(jTextField17.getText())){
+                JOptionPane.showMessageDialog(null, " Formato de Fecha Incial invalido!",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
+                    flag = false;
+            }
+            else{
+                fechainicial = jTextField17.getText();
+            }
+        }
+        if(!jTextField18.getText().equals("")){
+            if(!validarFecha(jTextField18.getText())){
+                JOptionPane.showMessageDialog(null, " Formato de Fecha Incial invalido!",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
+                    flag = false;
+            }
+            else{
+                fechafinal = jTextField18.getText();
+            }
+        }
+        if(flag){
+            Competencia selected = new Competencia();
+            for(Competencia competencia :mainregister.getRegistroCompetencias()){
+                if(competencia.getNombre().equals(nombre)){
+                    flag = false;
+                    JOptionPane.showMessageDialog(null, "Esa competencia ya existe!",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
+                }
+                if(competencia.getNombre().equals(jComboBox14.getSelectedItem().toString())){
+                    selected = competencia;
+                }
+            }
+            if(flag){
+                //crea los objetos de tipo fecha con java.time
+                if(fechainicial.equals("")){
+                    fechainicial = selected.getFechaInicial();
+                }
+                if(fechafinal.equals("")){
+                    fechafinal = selected.getFechaFinal();
+                }
+                LocalDate Finicial = LocalDate.parse(fechainicial, DateTimeFormatter.ofPattern("d/M/yyyy"));;
+                LocalDate Ffinal = LocalDate.parse(fechafinal, DateTimeFormatter.ofPattern("d/M/yyyy") );
+                if(Ffinal.isBefore(Finicial)){
+                    JOptionPane.showMessageDialog(null, " La fecha inicial debe ser menor o igual a la final!",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
+                }else{
+                    if(flag){
+                        if(!nombre.equals("")){
+                            selected.setNombre(nombre);
+                        }
+                        if(!pais.equals("")){
+                            selected.setPais(pais);
+                        } 
+                        if(!lugar.equals("")){
+                            selected.setLugar(lugar);
+                        }
+                        if(!fechainicial.equals("")){
+                            selected.setFechaInicial(fechainicial);
+                        }
+                        if(!fechafinal.equals("")){
+                            selected.setFechaFinal(fechafinal);
+                        }
+                        jComboBox15.removeAllItems();
+                        jList3.setModel(new DefaultListModel());
+                        jComboBox14.removeAllItems();
+                        for (Competencia competencia:mainregister.getRegistroCompetencias()){
+                           jComboBox14.addItem(competencia.getNombre());
+                        }
+                        jTextField10.setText("");
+                        jTextField15.setText("");
+                        jTextField16.setText("");
+                        jTextField17.setText("");
+                        jTextField18.setText("");
+                        JOptionPane.showMessageDialog(null, "Competencia Modificada con Éxito!");
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        if(jComboBox16.getSelectedItem().toString().equals("")){
+            JOptionPane.showMessageDialog(null, "Debe seleccionar una Competencia!",
+            "ERROR", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        Competencia selected = new Competencia();
+        for(Competencia competencia:mainregister.getRegistroCompetencias()){
+            if(competencia.getNombre().equals(jComboBox16.getSelectedItem().toString())){
+                selected = competencia;
+                break;
+            }
+        }
+        mainregister.getRegistroCompetencias().remove(selected);
+        jComboBox16.removeAllItems();
+        for(Competencia competencia:mainregister.getRegistroCompetencias()){
+            jComboBox16.addItem(competencia.getNombre());
+        }
+        definirSecuencial();
+        JOptionPane.showMessageDialog(null, "Competencia Eliminada con Éxito!");
+    }//GEN-LAST:event_jButton12ActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -1884,15 +2352,25 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton button_listadomarcas;
     private javax.swing.JButton button_registromarcas;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;
+    private javax.swing.JComboBox<String> jComboBox12;
+    private javax.swing.JComboBox<String> jComboBox13;
+    private javax.swing.JComboBox<String> jComboBox14;
+    private javax.swing.JComboBox<String> jComboBox15;
+    private javax.swing.JComboBox<String> jComboBox16;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
@@ -1935,24 +2413,45 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JList<String> jList2;
+    private javax.swing.JList<String> jList3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
