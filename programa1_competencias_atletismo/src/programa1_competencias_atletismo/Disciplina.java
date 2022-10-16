@@ -6,6 +6,11 @@ public class Disciplina {
     private String medida;
     private ArrayList<Prueba> listaPruebas;
     
+    public Disciplina(){
+        nombre = "";
+        medida = "";
+        listaPruebas = new ArrayList<>();
+    }
     public Disciplina(String pNombre,String pMedida){
         nombre = pNombre;
         medida = pMedida;
@@ -27,5 +32,9 @@ public class Disciplina {
     @Override
     public String toString(){
         return nombre;
+    }
+    
+    public String getMedida(){
+        return medida;
     }
 }
