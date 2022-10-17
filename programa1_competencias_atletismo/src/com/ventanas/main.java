@@ -1965,19 +1965,25 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_NombreAtletaTextFieldActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        String pIdentificacion = jComboBox9.getSelectedItem().toString();
-        ArrayList<Atleta> atletas = mainregister.getRegistroAtletas();
-        for(Atleta atleta1: atletas){
-            if(atleta1.getIdentificacion().equals(pIdentificacion)){
-                jLabel19.setText("Nombre: "+ atleta1.getNombreCompleto());
-                jLabel20.setText("Pais: "+ atleta1.getPais());
-                jLabel21.setText("Nacimiento: "+ atleta1.getFecha());
-                jLabel22.setText("Correo: "+ atleta1.getCorreo());
-                jLabel23.setText("Telefono: "+ atleta1.getTelefono());
-               
-           }
+        if (jComboBox9.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "Seleccione un atleta!",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
         }
+        else{
         
+            String pIdentificacion = jComboBox9.getSelectedItem().toString();
+            ArrayList<Atleta> atletas = mainregister.getRegistroAtletas();
+            for(Atleta atleta1: atletas){
+                if(atleta1.getIdentificacion().equals(pIdentificacion)){
+                    jLabel19.setText("Nombre: "+ atleta1.getNombreCompleto());
+                    jLabel20.setText("Pais: "+ atleta1.getPais());
+                    jLabel21.setText("Nacimiento: "+ atleta1.getFecha());
+                    jLabel22.setText("Correo: "+ atleta1.getCorreo());
+                    jLabel23.setText("Telefono: "+ atleta1.getTelefono());
+
+               }
+            }
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jComboBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox9ActionPerformed
@@ -1985,136 +1991,148 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox9ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        String pIdentificacion = jComboBox10.getSelectedItem().toString();
-        mainregister.eliminarAtleta(pIdentificacion);
-        jComboBox9.removeAllItems();
-        jComboBox10.removeAllItems();
-        jComboBox11.removeAllItems();
-        jComboBox17.removeAllItems();
-
-
-        ArrayList<Atleta> atletas = mainregister.getRegistroAtletas();
-
-        for(Atleta atleta1: atletas){
-            jComboBox9.addItem(atleta1.getIdentificacion());
-            jComboBox10.addItem(atleta1.getIdentificacion());
-            jComboBox11.addItem(atleta1.getIdentificacion());
-            jComboBox17.addItem(atleta1.getIdentificacion());
+        if (jComboBox10.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "Seleccione un atleta!",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
         }
+        else{
         
-        JOptionPane.showMessageDialog(null, "ATLETA ELIMIINADO CON EXITO!",
-        "EXITO", JOptionPane.INFORMATION_MESSAGE);
+            String pIdentificacion = jComboBox10.getSelectedItem().toString();
+            mainregister.eliminarAtleta(pIdentificacion);
+            jComboBox9.removeAllItems();
+            jComboBox10.removeAllItems();
+            jComboBox11.removeAllItems();
+            jComboBox17.removeAllItems();
+
+
+            ArrayList<Atleta> atletas = mainregister.getRegistroAtletas();
+
+            for(Atleta atleta1: atletas){
+                jComboBox9.addItem(atleta1.getIdentificacion());
+                jComboBox10.addItem(atleta1.getIdentificacion());
+                jComboBox11.addItem(atleta1.getIdentificacion());
+                jComboBox17.addItem(atleta1.getIdentificacion());
+            }
+
+            JOptionPane.showMessageDialog(null, "ATLETA ELIMIINADO CON EXITO!",
+            "EXITO", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-              
-        boolean bandera = true;
-            String nombre = "";
-            String apellido = "";
-            String apellido2 = "";
-            String correo = "";
-            String fecha = "";
-            String telefono = "";
-            String pais = "";
-                           
-            
-            //Validacion Nombre
-            if(jTextField2.getText().length()<2 || jTextField2.getText().length()>20){
-                JOptionPane.showMessageDialog(null, "El nombre del atleta debe contener de 2 a 20 caracteres!",
-                "ERROR", JOptionPane.ERROR_MESSAGE);
-                bandera = false;
-            }
-            else{
-                nombre = jTextField2.getText();
-            }
-            
-            //Validacion Apellido 1
-            if(jTextField3.getText().length()<2 || jTextField3.getText().length()>20){
-                JOptionPane.showMessageDialog(null, "El apellido 1 del atleta debe contener de 2 a 20 caracteres!",
-                "ERROR", JOptionPane.ERROR_MESSAGE);
-                bandera = false;
-            }
-            else{
-                apellido = jTextField3.getText();
-            }
-            
-            //Validacion Apellido 2
-            if(jTextField4.getText().length()<2 || jTextField4.getText().length()>20){
-                JOptionPane.showMessageDialog(null, "El apellido 2 del atleta debe contener de 2 a 20 caracteres!",
-                "ERROR", JOptionPane.ERROR_MESSAGE);
-                bandera = false;
-            }
-            else{
-                 apellido2 = jTextField4.getText();
-            }
-                                
-            //Validacion fecha
-            if(!validarFecha(jTextField5.getText())){
-                JOptionPane.showMessageDialog(null, "Fecha invalida!",
+        if (jComboBox11.getSelectedItem() == null){
+            JOptionPane.showMessageDialog(null, "Seleccione un atleta!",
+                    "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        else{
+            boolean bandera = true;
+                String nombre = "";
+                String apellido = "";
+                String apellido2 = "";
+                String correo = "";
+                String fecha = "";
+                String telefono = "";
+                String pais = "";
+
+
+                //Validacion Nombre
+                if(jTextField2.getText().length()<2 || jTextField2.getText().length()>20){
+                    JOptionPane.showMessageDialog(null, "El nombre del atleta debe contener de 2 a 20 caracteres!",
                     "ERROR", JOptionPane.ERROR_MESSAGE);
                     bandera = false;
-            }
-            else{
-                 fecha = jTextField5.getText();
-            }
-            
-            //Validacion correo
-            if(!validarFormatoCorreo(jTextField6.getText())){
-                JOptionPane.showMessageDialog(null, "Correo invalido!",
+                }
+                else{
+                    nombre = jTextField2.getText();
+                }
+
+                //Validacion Apellido 1
+                if(jTextField3.getText().length()<2 || jTextField3.getText().length()>20){
+                    JOptionPane.showMessageDialog(null, "El apellido 1 del atleta debe contener de 2 a 20 caracteres!",
                     "ERROR", JOptionPane.ERROR_MESSAGE);
                     bandera = false;
-            }
-            else{
-                 correo = jTextField6.getText();
-            }
-                      
-            //Validacion telefono
-            if(jTextField7.getText().length() != 20){
-                JOptionPane.showMessageDialog(null, "El telefono debe tener 20 caracteres!",
+                }
+                else{
+                    apellido = jTextField3.getText();
+                }
+
+                //Validacion Apellido 2
+                if(jTextField4.getText().length()<2 || jTextField4.getText().length()>20){
+                    JOptionPane.showMessageDialog(null, "El apellido 2 del atleta debe contener de 2 a 20 caracteres!",
                     "ERROR", JOptionPane.ERROR_MESSAGE);
                     bandera = false;
-            }
-            else{
-                 telefono = jTextField7.getText();
-            }
-            
-            //Agregar Atleta
-            if(bandera){
-                ArrayList<Atleta> atleta = mainregister.getRegistroAtletas();
-                for(Atleta atleta1: atleta){
-                    if(atleta1.getIdentificacion().equals(jComboBox11.getSelectedItem().toString())){
-                        atleta1.setNombre(nombre);
-                        atleta1.setApellido1(apellido);
-                        atleta1.setApellido2(apellido2);
-                        atleta1.setFecha(fecha);
-                        atleta1.setCorreo(correo);
-                        atleta1.setTelefono(telefono);
-                        break;
+                }
+                else{
+                     apellido2 = jTextField4.getText();
+                }
+
+                //Validacion fecha
+                if(!validarFecha(jTextField5.getText())){
+                    JOptionPane.showMessageDialog(null, "Fecha invalida!",
+                        "ERROR", JOptionPane.ERROR_MESSAGE);
+                        bandera = false;
+                }
+                else{
+                     fecha = jTextField5.getText();
+                }
+
+                //Validacion correo
+                if(!validarFormatoCorreo(jTextField6.getText())){
+                    JOptionPane.showMessageDialog(null, "Correo invalido!",
+                        "ERROR", JOptionPane.ERROR_MESSAGE);
+                        bandera = false;
+                }
+                else{
+                     correo = jTextField6.getText();
+                }
+
+                //Validacion telefono
+                if(jTextField7.getText().length() != 20){
+                    JOptionPane.showMessageDialog(null, "El telefono debe tener 20 caracteres!",
+                        "ERROR", JOptionPane.ERROR_MESSAGE);
+                        bandera = false;
+                }
+                else{
+                     telefono = jTextField7.getText();
+                }
+
+                //Agregar Atleta
+                if(bandera){
+                    ArrayList<Atleta> atleta = mainregister.getRegistroAtletas();
+                    for(Atleta atleta1: atleta){
+                        if(atleta1.getIdentificacion().equals(jComboBox11.getSelectedItem().toString())){
+                            atleta1.setNombre(nombre);
+                            atleta1.setApellido1(apellido);
+                            atleta1.setApellido2(apellido2);
+                            atleta1.setFecha(fecha);
+                            atleta1.setCorreo(correo);
+                            atleta1.setTelefono(telefono);
+                            break;
+                        }
+                    }
+
+                    JOptionPane.showMessageDialog(null, "ATLETA MODIFICADO CON EXITO!",
+                        "EXITO", JOptionPane.INFORMATION_MESSAGE);
+
+                    jTextField2.setText("");
+                    jTextField3.setText("");
+                    jTextField4.setText("");
+                    jTextField5.setText("");
+                    jTextField6.setText("");
+                    jTextField7.setText("");
+
+                    jComboBox9.removeAllItems();
+                    jComboBox10.removeAllItems();
+                    jComboBox11.removeAllItems();
+
+                    ArrayList<Atleta> atletas = mainregister.getRegistroAtletas();
+
+                    for(Atleta atleta1: atletas){
+                        jComboBox9.addItem(atleta1.getIdentificacion());
+                        jComboBox10.addItem(atleta1.getIdentificacion());
+                        jComboBox11.addItem(atleta1.getIdentificacion());
                     }
                 }
-                
-                JOptionPane.showMessageDialog(null, "ATLETA MODIFICADO CON EXITO!",
-                    "EXITO", JOptionPane.INFORMATION_MESSAGE);
-                
-                jTextField2.setText("");
-                jTextField3.setText("");
-                jTextField4.setText("");
-                jTextField5.setText("");
-                jTextField6.setText("");
-                jTextField7.setText("");
-                
-                jComboBox9.removeAllItems();
-                jComboBox10.removeAllItems();
-                jComboBox11.removeAllItems();
-                
-                ArrayList<Atleta> atletas = mainregister.getRegistroAtletas();
-       
-                for(Atleta atleta1: atletas){
-                    jComboBox9.addItem(atleta1.getIdentificacion());
-                    jComboBox10.addItem(atleta1.getIdentificacion());
-                    jComboBox11.addItem(atleta1.getIdentificacion());
-                }
-            }
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
