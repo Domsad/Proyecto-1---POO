@@ -21,7 +21,7 @@ public class main extends javax.swing.JFrame {
     static ArrayList<Marca> marcas = new ArrayList<>();
     private DefaultListModel modelopruebasDisciplina = new DefaultListModel();
     private int secuencialCompetencia = 1;
-    private int cantatletas = 1;
+    private int cantatletas = 0;
     
     public main() {
         initComponents();
@@ -41,7 +41,21 @@ public class main extends javax.swing.JFrame {
         mainregister.getRegistroDisciplinas().add(new Disciplina("Saltos","Tiempo"));
         mainregister.getRegistroDisciplinas().add(new Disciplina("Marcha","Tiempo"));
         mainregister.getRegistroDisciplinas().add(new Disciplina("Salto","Distancia"));
-        mainregister.getRegistroDisciplinas().add(new Disciplina("Lanzamiento","Distancia"));
+        Disciplina temp = new Disciplina("Lanzamiento","Distancia");
+        temp.getListaPruebas().add(new Prueba("100m","Ambos","Master"));
+        mainregister.getRegistroDisciplinas().add(temp);
+        Atleta atl1 = new Atleta("Alonso","Casares","Aguirre","123456789"
+        ,"CRC","10/11/2004","alonso@gmail.com","12345678912345678900");
+        mainregister.agregarAtleta(atl1);
+        Atleta atl2 = new Atleta("Harlen","Viquez","Monge","987654321"
+        ,"CRC","10/11/2004","alonso@gmail.com","12345678912345678900");
+        mainregister.agregarAtleta(atl2);
+        Atleta atl3 = new Atleta("Mariana","Navarro","Carillo","123123123"
+        ,"CRC","10/11/2004","alonso@gmail.com","12345678912345678900");
+        mainregister.agregarAtleta(atl3);
+        Competencia temp2 = new Competencia("Competencia1",1,"CRC","Cartago","10/11/2004","11/11/2004");
+        temp2.getRegistroDisciplinas().add(temp);
+        mainregister.getRegistroCompetencias().add(temp2);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -239,13 +253,33 @@ public class main extends javax.swing.JFrame {
         jButton17 = new javax.swing.JButton();
         jLabel58 = new javax.swing.JLabel();
         jTextField20 = new javax.swing.JTextField();
-        Panel_listado = new javax.swing.JPanel();
         Panel_configuracion = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
         jLabel41 = new javax.swing.JLabel();
         jLabel42 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
+        Panel_listado = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jButton18 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
+        jButton19 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jTabbedPane6 = new javax.swing.JTabbedPane();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextArea4 = new javax.swing.JTextArea();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTextArea5 = new javax.swing.JTextArea();
+        jPanel8 = new javax.swing.JPanel();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        jTextArea6 = new javax.swing.JTextArea();
 
         jLabel33.setText("jLabel33");
 
@@ -392,7 +426,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonesdisciplinas.add(button_disciplinas_modificarpruebas);
-        button_disciplinas_modificarpruebas.setBounds(10, 140, 140, 23);
+        button_disciplinas_modificarpruebas.setBounds(10, 140, 140, 28);
 
         button_disciplinas_consultar.setText("Consultar y Listado");
         button_disciplinas_consultar.addActionListener(new java.awt.event.ActionListener() {
@@ -401,7 +435,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonesdisciplinas.add(button_disciplinas_consultar);
-        button_disciplinas_consultar.setBounds(10, 80, 140, 23);
+        button_disciplinas_consultar.setBounds(10, 80, 140, 28);
 
         button_disciplinas_modificarnombre.setText("Modificar Nombre");
         button_disciplinas_modificarnombre.addActionListener(new java.awt.event.ActionListener() {
@@ -410,7 +444,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonesdisciplinas.add(button_disciplinas_modificarnombre);
-        button_disciplinas_modificarnombre.setBounds(10, 200, 138, 23);
+        button_disciplinas_modificarnombre.setBounds(10, 200, 138, 28);
 
         button_disciplinas_borrar.setText("Borrar");
         button_disciplinas_borrar.addActionListener(new java.awt.event.ActionListener() {
@@ -419,7 +453,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonesdisciplinas.add(button_disciplinas_borrar);
-        button_disciplinas_borrar.setBounds(10, 250, 140, 23);
+        button_disciplinas_borrar.setBounds(10, 250, 140, 28);
 
         button_disciplinas_agregardisciplina.setText("Agregar Disciplina");
         button_disciplinas_agregardisciplina.addActionListener(new java.awt.event.ActionListener() {
@@ -428,7 +462,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonesdisciplinas.add(button_disciplinas_agregardisciplina);
-        button_disciplinas_agregardisciplina.setBounds(10, 30, 140, 23);
+        button_disciplinas_agregardisciplina.setBounds(10, 30, 140, 28);
 
         Panel_disciplinas.add(Panel_botonesdisciplinas);
         Panel_botonesdisciplinas.setBounds(0, 40, 160, 320);
@@ -449,7 +483,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_disciplinas_agregar.add(textfield_agregar_nombredisciplina);
-        textfield_agregar_nombredisciplina.setBounds(180, 50, 120, 22);
+        textfield_agregar_nombredisciplina.setBounds(180, 50, 120, 28);
 
         jComboBox7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -457,7 +491,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_disciplinas_agregar.add(jComboBox7);
-        jComboBox7.setBounds(180, 110, 120, 22);
+        jComboBox7.setBounds(180, 110, 120, 26);
 
         jLabel8.setText("Medida: ");
         panel_disciplinas_agregar.add(jLabel8);
@@ -471,7 +505,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_disciplinas_agregar.add(jButton3);
-        jButton3.setBounds(150, 180, 120, 23);
+        jButton3.setBounds(150, 180, 120, 28);
 
         jTabbedPane2.addTab("tab1", panel_disciplinas_agregar);
 
@@ -517,7 +551,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_disciplinas_modificar.add(jTextField1);
-        jTextField1.setBounds(130, 120, 210, 22);
+        jTextField1.setBounds(130, 120, 210, 28);
 
         jLabel6.setText("Nuevo Nombre:");
         panel_disciplinas_modificar.add(jLabel6);
@@ -531,7 +565,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_disciplinas_modificar.add(jButton1);
-        jButton1.setBounds(130, 200, 150, 23);
+        jButton1.setBounds(130, 200, 150, 28);
 
         jTabbedPane2.addTab("tab3", panel_disciplinas_modificar);
 
@@ -552,7 +586,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_disciplinas_borrar.add(jButton2);
-        jButton2.setBounds(160, 120, 120, 23);
+        jButton2.setBounds(160, 120, 120, 28);
 
         jTabbedPane2.addTab("tab4", panel_disciplinas_borrar);
 
@@ -578,7 +612,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_disciplinas_modificarpruebas.add(textfield_agregar_nombreprueba);
-        textfield_agregar_nombreprueba.setBounds(140, 100, 120, 22);
+        textfield_agregar_nombreprueba.setBounds(140, 100, 120, 28);
 
         jLabel3.setText("Género:");
         panel_disciplinas_modificarpruebas.add(jLabel3);
@@ -606,13 +640,13 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_disciplinas_modificarpruebas.add(button_eliminarprueba);
-        button_eliminarprueba.setBounds(30, 270, 130, 23);
+        button_eliminarprueba.setBounds(30, 270, 130, 28);
 
         panel_disciplinas_modificarpruebas.add(jComboBox5);
-        jComboBox5.setBounds(140, 180, 120, 22);
+        jComboBox5.setBounds(140, 180, 120, 26);
 
         panel_disciplinas_modificarpruebas.add(jComboBox6);
-        jComboBox6.setBounds(140, 140, 120, 22);
+        jComboBox6.setBounds(140, 140, 120, 26);
 
         jLabel9.setText("Disciplina:");
         panel_disciplinas_modificarpruebas.add(jLabel9);
@@ -624,7 +658,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_disciplinas_modificarpruebas.add(jComboBox8);
-        jComboBox8.setBounds(80, 20, 180, 22);
+        jComboBox8.setBounds(80, 20, 180, 26);
 
         jTabbedPane2.addTab("tab5", panel_disciplinas_modificarpruebas);
 
@@ -649,7 +683,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonesatletas.add(button_atletas_agregar);
-        button_atletas_agregar.setBounds(10, 40, 138, 23);
+        button_atletas_agregar.setBounds(10, 40, 138, 28);
 
         button_atletas_consultar.setText("Consultar");
         button_atletas_consultar.addActionListener(new java.awt.event.ActionListener() {
@@ -658,7 +692,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonesatletas.add(button_atletas_consultar);
-        button_atletas_consultar.setBounds(10, 100, 138, 23);
+        button_atletas_consultar.setBounds(10, 100, 138, 28);
 
         button_atletas_modificar.setText("Modificar");
         button_atletas_modificar.addActionListener(new java.awt.event.ActionListener() {
@@ -667,7 +701,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonesatletas.add(button_atletas_modificar);
-        button_atletas_modificar.setBounds(10, 160, 138, 23);
+        button_atletas_modificar.setBounds(10, 160, 138, 28);
 
         button_atletas_borrar.setText("Borrar");
         button_atletas_borrar.addActionListener(new java.awt.event.ActionListener() {
@@ -676,7 +710,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonesatletas.add(button_atletas_borrar);
-        button_atletas_borrar.setBounds(10, 210, 138, 23);
+        button_atletas_borrar.setBounds(10, 210, 138, 28);
 
         Panel_atletas.add(Panel_botonesatletas);
         Panel_botonesatletas.setBounds(0, 40, 150, 320);
@@ -705,29 +739,29 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_atletas_agregar.add(NombreAtletaTextField);
-        NombreAtletaTextField.setBounds(180, 30, 170, 22);
+        NombreAtletaTextField.setBounds(180, 30, 170, 28);
         panel_atletas_agregar.add(Apellido1TextField);
-        Apellido1TextField.setBounds(180, 60, 170, 22);
+        Apellido1TextField.setBounds(180, 60, 170, 28);
         panel_atletas_agregar.add(Apellido2TextField);
-        Apellido2TextField.setBounds(180, 90, 170, 22);
+        Apellido2TextField.setBounds(180, 90, 170, 28);
 
         jLabel13.setText("Identificacion:");
         panel_atletas_agregar.add(jLabel13);
         jLabel13.setBounds(70, 120, 110, 20);
         panel_atletas_agregar.add(IdentificacionTextField);
-        IdentificacionTextField.setBounds(180, 120, 170, 22);
+        IdentificacionTextField.setBounds(180, 120, 170, 28);
 
         jLabel14.setText("Pais de Origen:");
         panel_atletas_agregar.add(jLabel14);
         jLabel14.setBounds(60, 150, 120, 20);
         panel_atletas_agregar.add(PaisTextField);
-        PaisTextField.setBounds(180, 150, 170, 22);
+        PaisTextField.setBounds(180, 150, 170, 28);
 
         jLabel15.setText("Fecha de nacimiento:");
         panel_atletas_agregar.add(jLabel15);
         jLabel15.setBounds(30, 180, 150, 20);
         panel_atletas_agregar.add(NacimientoTextField);
-        NacimientoTextField.setBounds(180, 180, 170, 22);
+        NacimientoTextField.setBounds(180, 180, 170, 28);
 
         jLabel16.setText("Correo:");
         panel_atletas_agregar.add(jLabel16);
@@ -737,9 +771,9 @@ public class main extends javax.swing.JFrame {
         panel_atletas_agregar.add(jLabel17);
         jLabel17.setBounds(89, 240, 90, 20);
         panel_atletas_agregar.add(CorreoTextField);
-        CorreoTextField.setBounds(180, 210, 170, 22);
+        CorreoTextField.setBounds(180, 210, 170, 28);
         panel_atletas_agregar.add(TelefonoTextField);
-        TelefonoTextField.setBounds(180, 240, 170, 22);
+        TelefonoTextField.setBounds(180, 240, 170, 28);
 
         BottonAgregarAtleta.setBackground(new java.awt.Color(102, 255, 51));
         BottonAgregarAtleta.setText("Agregar");
@@ -749,7 +783,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_atletas_agregar.add(BottonAgregarAtleta);
-        BottonAgregarAtleta.setBounds(190, 270, 120, 23);
+        BottonAgregarAtleta.setBounds(190, 270, 120, 28);
 
         jTabbedPane3.addTab("tab1", panel_atletas_agregar);
 
@@ -761,7 +795,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_atletas_consultar.add(jComboBox9);
-        jComboBox9.setBounds(60, 40, 270, 22);
+        jComboBox9.setBounds(60, 40, 270, 26);
 
         jLabel18.setText("Identificacion de Atletas");
         panel_atletas_consultar.add(jLabel18);
@@ -778,7 +812,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_atletas_consultar.add(jButton4);
-        jButton4.setBounds(130, 70, 110, 23);
+        jButton4.setBounds(130, 70, 110, 28);
 
         jLabel20.setText("jLabel20");
         panel_atletas_consultar.add(jLabel20);
@@ -805,7 +839,7 @@ public class main extends javax.swing.JFrame {
         jLabel25.setBounds(140, 10, 130, 20);
 
         panel_atletas_modificar.add(jComboBox11);
-        jComboBox11.setBounds(120, 30, 180, 22);
+        jComboBox11.setBounds(120, 30, 180, 26);
 
         jButton6.setBackground(new java.awt.Color(0, 204, 51));
         jButton6.setForeground(new java.awt.Color(255, 255, 255));
@@ -816,7 +850,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_atletas_modificar.add(jButton6);
-        jButton6.setBounds(140, 260, 130, 23);
+        jButton6.setBounds(140, 260, 130, 28);
 
         jLabel26.setText("Nombre");
         panel_atletas_modificar.add(jLabel26);
@@ -842,9 +876,9 @@ public class main extends javax.swing.JFrame {
         panel_atletas_modificar.add(jLabel31);
         jLabel31.setBounds(70, 220, 90, 20);
         panel_atletas_modificar.add(jTextField2);
-        jTextField2.setBounds(130, 70, 210, 22);
+        jTextField2.setBounds(130, 70, 210, 28);
         panel_atletas_modificar.add(jTextField3);
-        jTextField3.setBounds(130, 100, 210, 22);
+        jTextField3.setBounds(130, 100, 210, 28);
 
         jTextField4.setToolTipText("");
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
@@ -853,13 +887,13 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_atletas_modificar.add(jTextField4);
-        jTextField4.setBounds(130, 130, 210, 22);
+        jTextField4.setBounds(130, 130, 210, 28);
         panel_atletas_modificar.add(jTextField5);
-        jTextField5.setBounds(130, 160, 210, 22);
+        jTextField5.setBounds(130, 160, 210, 28);
         panel_atletas_modificar.add(jTextField6);
-        jTextField6.setBounds(130, 190, 210, 22);
+        jTextField6.setBounds(130, 190, 210, 28);
         panel_atletas_modificar.add(jTextField7);
-        jTextField7.setBounds(130, 220, 210, 22);
+        jTextField7.setBounds(130, 220, 210, 28);
 
         jTabbedPane3.addTab("tab3", panel_atletas_modificar);
 
@@ -878,10 +912,10 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_atletas_borrar.add(jButton5);
-        jButton5.setBounds(140, 150, 75, 23);
+        jButton5.setBounds(140, 150, 75, 28);
 
         panel_atletas_borrar.add(jComboBox10);
-        jComboBox10.setBounds(90, 110, 180, 22);
+        jComboBox10.setBounds(90, 110, 180, 26);
 
         jTabbedPane3.addTab("tab4", panel_atletas_borrar);
 
@@ -906,7 +940,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonescompetencias.add(button_competencias_agregar);
-        button_competencias_agregar.setBounds(10, 40, 138, 23);
+        button_competencias_agregar.setBounds(10, 40, 138, 28);
 
         button_competencias_consultar.setText("Consultar ");
         button_competencias_consultar.addActionListener(new java.awt.event.ActionListener() {
@@ -915,7 +949,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonescompetencias.add(button_competencias_consultar);
-        button_competencias_consultar.setBounds(10, 100, 138, 23);
+        button_competencias_consultar.setBounds(10, 100, 138, 28);
 
         button_competencias_modificar.setText("Modificar");
         button_competencias_modificar.addActionListener(new java.awt.event.ActionListener() {
@@ -924,7 +958,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonescompetencias.add(button_competencias_modificar);
-        button_competencias_modificar.setBounds(10, 160, 138, 23);
+        button_competencias_modificar.setBounds(10, 160, 138, 28);
 
         button_competencias_borrar.setText("Borrar");
         button_competencias_borrar.addActionListener(new java.awt.event.ActionListener() {
@@ -933,7 +967,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonescompetencias.add(button_competencias_borrar);
-        button_competencias_borrar.setBounds(10, 210, 138, 23);
+        button_competencias_borrar.setBounds(10, 210, 138, 28);
 
         Panel_competencias.add(Panel_botonescompetencias);
         Panel_botonescompetencias.setBounds(0, 40, 150, 320);
@@ -947,13 +981,13 @@ public class main extends javax.swing.JFrame {
         panel_competencias_agregar.add(jLabel32);
         jLabel32.setBounds(57, 30, 60, 16);
         panel_competencias_agregar.add(jTextField9);
-        jTextField9.setBounds(120, 20, 200, 22);
+        jTextField9.setBounds(120, 20, 200, 28);
 
         jLabel34.setText("Identificación:");
         panel_competencias_agregar.add(jLabel34);
         jLabel34.setBounds(50, 70, 80, 10);
         panel_competencias_agregar.add(jTextField11);
-        jTextField11.setBounds(120, 100, 200, 22);
+        jTextField11.setBounds(120, 100, 200, 28);
 
         jLabel35.setText("País:");
         panel_competencias_agregar.add(jLabel35);
@@ -965,7 +999,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_competencias_agregar.add(jTextField12);
-        jTextField12.setBounds(120, 140, 200, 22);
+        jTextField12.setBounds(120, 140, 200, 28);
 
         jLabel36.setText("Lugar:");
         panel_competencias_agregar.add(jLabel36);
@@ -977,7 +1011,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_competencias_agregar.add(jTextField13);
-        jTextField13.setBounds(120, 180, 200, 22);
+        jTextField13.setBounds(120, 180, 200, 28);
 
         jLabel37.setText("Fecha Inicial:");
         panel_competencias_agregar.add(jLabel37);
@@ -991,7 +1025,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_competencias_agregar.add(button_agregar_competencia);
-        button_agregar_competencia.setBounds(167, 270, 100, 23);
+        button_agregar_competencia.setBounds(167, 270, 100, 28);
 
         jLabel38.setText("Fecha Final:");
         panel_competencias_agregar.add(jLabel38);
@@ -1003,7 +1037,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_competencias_agregar.add(jTextField14);
-        jTextField14.setBounds(120, 220, 200, 22);
+        jTextField14.setBounds(120, 220, 200, 28);
 
         jLabel43.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel43.setText("0");
@@ -1029,14 +1063,14 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_competencias_consultar.add(jComboBox12);
-        jComboBox12.setBounds(100, 20, 200, 22);
+        jComboBox12.setBounds(100, 20, 200, 26);
 
         jLabel40.setText("Competencia:");
         panel_competencias_consultar.add(jLabel40);
         jLabel40.setBounds(10, 20, 90, 20);
 
         panel_competencias_consultar.add(jComboBox13);
-        jComboBox13.setBounds(100, 100, 200, 22);
+        jComboBox13.setBounds(100, 100, 200, 26);
 
         jLabel44.setText("Disciplinas:");
         panel_competencias_consultar.add(jLabel44);
@@ -1050,7 +1084,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_competencias_consultar.add(jButton8);
-        jButton8.setBounds(150, 60, 90, 23);
+        jButton8.setBounds(150, 60, 90, 28);
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
@@ -1078,7 +1112,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_competencias_modificar.add(jComboBox14);
-        jComboBox14.setBounds(90, 30, 130, 22);
+        jComboBox14.setBounds(90, 30, 130, 26);
         panel_competencias_modificar.add(jList3);
         jList3.setBounds(230, 80, 130, 170);
 
@@ -1090,7 +1124,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_competencias_modificar.add(jButton9);
-        jButton9.setBounds(210, 270, 80, 23);
+        jButton9.setBounds(210, 270, 80, 28);
 
         jButton10.setBackground(new java.awt.Color(255, 0, 0));
         jButton10.setText("Eliminar");
@@ -1100,7 +1134,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_competencias_modificar.add(jButton10);
-        jButton10.setBounds(290, 270, 80, 23);
+        jButton10.setBounds(290, 270, 80, 28);
 
         jComboBox15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1108,7 +1142,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_competencias_modificar.add(jComboBox15);
-        jComboBox15.setBounds(230, 30, 140, 22);
+        jComboBox15.setBounds(230, 30, 140, 26);
 
         jLabel46.setText("Disciplina");
         panel_competencias_modificar.add(jLabel46);
@@ -1118,7 +1152,7 @@ public class main extends javax.swing.JFrame {
         panel_competencias_modificar.add(jLabel47);
         jLabel47.setBounds(30, 120, 50, 16);
         panel_competencias_modificar.add(jTextField15);
-        jTextField15.setBounds(90, 120, 120, 22);
+        jTextField15.setBounds(90, 120, 120, 28);
 
         jLabel48.setText("Lugar:");
         panel_competencias_modificar.add(jLabel48);
@@ -1130,7 +1164,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_competencias_modificar.add(jTextField16);
-        jTextField16.setBounds(90, 150, 120, 22);
+        jTextField16.setBounds(90, 150, 120, 28);
 
         jLabel49.setText("Fecha Inicial:");
         panel_competencias_modificar.add(jLabel49);
@@ -1142,7 +1176,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_competencias_modificar.add(jTextField17);
-        jTextField17.setBounds(90, 180, 120, 22);
+        jTextField17.setBounds(90, 180, 120, 28);
 
         jLabel50.setText("Fecha Final:");
         panel_competencias_modificar.add(jLabel50);
@@ -1154,13 +1188,13 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_competencias_modificar.add(jTextField18);
-        jTextField18.setBounds(90, 220, 120, 22);
+        jTextField18.setBounds(90, 220, 120, 28);
 
         jLabel51.setText("Nombre:");
         panel_competencias_modificar.add(jLabel51);
         jLabel51.setBounds(20, 80, 60, 16);
         panel_competencias_modificar.add(jTextField10);
-        jTextField10.setBounds(90, 80, 120, 22);
+        jTextField10.setBounds(90, 80, 120, 28);
 
         jButton11.setBackground(new java.awt.Color(0, 153, 153));
         jButton11.setText("Guardar");
@@ -1170,7 +1204,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_competencias_modificar.add(jButton11);
-        jButton11.setBounds(50, 270, 140, 23);
+        jButton11.setBounds(50, 270, 140, 28);
 
         jTabbedPane4.addTab("tab4", panel_competencias_modificar);
 
@@ -1216,7 +1250,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         Panel_botonesregistro.add(button_registro_agregar);
-        button_registro_agregar.setBounds(10, 140, 138, 23);
+        button_registro_agregar.setBounds(10, 140, 138, 28);
 
         Panel_registros.add(Panel_botonesregistro);
         Panel_botonesregistro.setBounds(0, 40, 150, 320);
@@ -1231,28 +1265,28 @@ public class main extends javax.swing.JFrame {
         jLabel53.setBounds(10, 30, 170, 20);
 
         panel_registro_agregar.add(jComboBox17);
-        jComboBox17.setBounds(170, 30, 200, 22);
+        jComboBox17.setBounds(170, 30, 200, 26);
 
         jLabel54.setText("Competencia");
         panel_registro_agregar.add(jLabel54);
         jLabel54.setBounds(10, 80, 160, 20);
 
         panel_registro_agregar.add(jComboBox18);
-        jComboBox18.setBounds(100, 80, 180, 22);
+        jComboBox18.setBounds(100, 80, 180, 26);
 
         jLabel55.setText("Disciplina");
         panel_registro_agregar.add(jLabel55);
         jLabel55.setBounds(30, 130, 120, 20);
 
         panel_registro_agregar.add(jComboBox19);
-        jComboBox19.setBounds(100, 130, 180, 22);
+        jComboBox19.setBounds(100, 130, 180, 26);
 
         jLabel56.setText("Prueba");
         panel_registro_agregar.add(jLabel56);
         jLabel56.setBounds(90, 180, 120, 20);
 
         panel_registro_agregar.add(jComboBox20);
-        jComboBox20.setBounds(170, 180, 200, 22);
+        jComboBox20.setBounds(170, 180, 200, 26);
 
         jLabel57.setText("Marca");
         panel_registro_agregar.add(jLabel57);
@@ -1264,7 +1298,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_registro_agregar.add(jTextField19);
-        jTextField19.setBounds(90, 230, 90, 22);
+        jTextField19.setBounds(90, 230, 90, 28);
 
         jButton13.setBackground(new java.awt.Color(0, 204, 0));
         jButton13.setForeground(new java.awt.Color(255, 255, 255));
@@ -1275,7 +1309,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_registro_agregar.add(jButton13);
-        jButton13.setBounds(110, 270, 140, 23);
+        jButton13.setBounds(110, 270, 140, 28);
 
         jButton14.setBackground(new java.awt.Color(0, 153, 255));
         jButton14.setForeground(new java.awt.Color(255, 255, 255));
@@ -1286,7 +1320,7 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_registro_agregar.add(jButton14);
-        jButton14.setBounds(290, 80, 100, 23);
+        jButton14.setBounds(290, 80, 100, 28);
 
         jButton17.setBackground(new java.awt.Color(0, 153, 255));
         jButton17.setForeground(new java.awt.Color(255, 255, 255));
@@ -1297,13 +1331,13 @@ public class main extends javax.swing.JFrame {
             }
         });
         panel_registro_agregar.add(jButton17);
-        jButton17.setBounds(290, 130, 100, 23);
+        jButton17.setBounds(290, 130, 100, 28);
 
         jLabel58.setText("Dorsal");
         panel_registro_agregar.add(jLabel58);
         jLabel58.setBounds(210, 230, 60, 20);
         panel_registro_agregar.add(jTextField20);
-        jTextField20.setBounds(260, 230, 110, 22);
+        jTextField20.setBounds(260, 230, 110, 28);
 
         jTabbedPane5.addTab("tab2", panel_registro_agregar);
 
@@ -1311,9 +1345,6 @@ public class main extends javax.swing.JFrame {
         jTabbedPane5.setBounds(180, 10, 390, 340);
 
         jTabbedPane1.addTab("tab4", Panel_registros);
-
-        Panel_listado.setLayout(null);
-        jTabbedPane1.addTab("tab5", Panel_listado);
 
         Panel_configuracion.setLayout(null);
 
@@ -1353,6 +1384,121 @@ public class main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("tab7", Panel_configuracion);
 
+        Panel_listado.setLayout(null);
+
+        jPanel2.setLayout(null);
+
+        jButton18.setText("Atleta");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton18);
+        jButton18.setBounds(0, 30, 120, 28);
+
+        jButton15.setText("Competencia");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton15);
+        jButton15.setBounds(0, 80, 120, 28);
+
+        jButton16.setText("Mejores");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton16);
+        jButton16.setBounds(0, 140, 120, 28);
+
+        jButton19.setText("Prueba");
+        jPanel2.add(jButton19);
+        jButton19.setBounds(0, 200, 120, 28);
+
+        Panel_listado.add(jPanel2);
+        jPanel2.setBounds(10, 50, 120, 300);
+
+        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel3.setLayout(null);
+        Panel_listado.add(jPanel3);
+        jPanel3.setBounds(0, 0, 580, 50);
+
+        jPanel4.setLayout(null);
+        jTabbedPane6.addTab("tab1", jPanel4);
+
+        jPanel5.setLayout(null);
+
+        jTextArea2.setEditable(false);
+        jTextArea2.setColumns(20);
+        jTextArea2.setLineWrap(true);
+        jTextArea2.setRows(5);
+        jTextArea2.setWrapStyleWord(true);
+        jTextArea2.setCursor(null);
+        jTextArea2.setFocusable(false);
+        jScrollPane3.setViewportView(jTextArea2);
+
+        jPanel5.add(jScrollPane3);
+        jScrollPane3.setBounds(0, 0, 430, 300);
+
+        jTabbedPane6.addTab("tab2", jPanel5);
+
+        jPanel6.setLayout(null);
+
+        jTextArea4.setEditable(false);
+        jTextArea4.setColumns(20);
+        jTextArea4.setLineWrap(true);
+        jTextArea4.setRows(5);
+        jTextArea4.setWrapStyleWord(true);
+        jTextArea4.setCursor(null);
+        jTextArea4.setFocusable(false);
+        jScrollPane5.setViewportView(jTextArea4);
+
+        jPanel6.add(jScrollPane5);
+        jScrollPane5.setBounds(0, 0, 430, 300);
+
+        jTabbedPane6.addTab("tab3", jPanel6);
+
+        jPanel7.setLayout(null);
+
+        jTextArea5.setEditable(false);
+        jTextArea5.setColumns(20);
+        jTextArea5.setLineWrap(true);
+        jTextArea5.setRows(5);
+        jTextArea5.setWrapStyleWord(true);
+        jTextArea5.setCursor(null);
+        jTextArea5.setFocusable(false);
+        jScrollPane6.setViewportView(jTextArea5);
+
+        jPanel7.add(jScrollPane6);
+        jScrollPane6.setBounds(0, 0, 430, 300);
+
+        jTabbedPane6.addTab("tab4", jPanel7);
+
+        jPanel8.setLayout(null);
+
+        jTextArea6.setEditable(false);
+        jTextArea6.setColumns(20);
+        jTextArea6.setLineWrap(true);
+        jTextArea6.setRows(5);
+        jTextArea6.setWrapStyleWord(true);
+        jTextArea6.setCursor(null);
+        jTextArea6.setFocusable(false);
+        jScrollPane7.setViewportView(jTextArea6);
+
+        jPanel8.add(jScrollPane7);
+        jScrollPane7.setBounds(0, 0, 430, 300);
+
+        jTabbedPane6.addTab("tab5", jPanel8);
+
+        Panel_listado.add(jTabbedPane6);
+        jTabbedPane6.setBounds(130, 20, 430, 330);
+
+        jTabbedPane1.addTab("tab5", Panel_listado);
+
         Panel_main.add(jTabbedPane1);
         jTabbedPane1.setBounds(221, 20, 580, 380);
 
@@ -1380,7 +1526,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_button_competenciasActionPerformed
 
     private void button_listadomarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_listadomarcasActionPerformed
-        jTabbedPane1.setSelectedIndex(5);
+        jTabbedPane1.setSelectedIndex(6);
     }//GEN-LAST:event_button_listadomarcasActionPerformed
 
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
@@ -1428,7 +1574,7 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_button_disciplinas_borrarActionPerformed
 
     private void button_configuracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_configuracionActionPerformed
-        jTabbedPane1.setSelectedIndex(6);
+        jTabbedPane1.setSelectedIndex(5);
         jLabel42.setText(secuencialCompetencia +"");
     }//GEN-LAST:event_button_configuracionActionPerformed
 
@@ -2307,15 +2453,17 @@ public class main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void button_registro_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_registro_agregarActionPerformed
-        jTabbedPane5.setSelectedIndex(3);
+        jTabbedPane5.setSelectedIndex(1);
+        jComboBox17.removeAllItems();
+        for(Atleta atl:mainregister.getRegistroAtletas()){
+            jComboBox17.addItem(atl.getIdentificacion());
+        }
         jComboBox18.removeAllItems();
         for (Competencia competencia:mainregister.getRegistroCompetencias()){
            jComboBox18.addItem(competencia.getNombre());
         }
         ArrayList<Competencia> competencias = mainregister.getRegistroCompetencias();      
     }//GEN-LAST:event_button_registro_agregarActionPerformed
-
-    
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         if(jComboBox12.getSelectedItem() == null){
@@ -2500,13 +2648,14 @@ public class main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton17ActionPerformed
 
-    public boolean verificarDorsal(int Dorsal, int idCompetencia, String identificacion){
+    public boolean verificarDorsal(int Dorsal, int idCompetencia, String identificacion, Prueba prueba){
         for(Marca marca:marcas){
-            if (marca.getCompetencia().getIdentificacion()== idCompetencia && 
+            if(marca.getCompetencia().getIdentificacion()== idCompetencia && 
                     marca.getDorsal() == Dorsal && 
-                    !marca.getAtleta().getIdentificacion().equals(identificacion)){
+                    marca.getAtleta().getIdentificacion().equals(identificacion) && 
+                    marca.getPrueba().getNombre().equals(prueba.getNombre())){
                 return true;
-            } 
+            }
         }
         return false; 
     }
@@ -2526,6 +2675,115 @@ public class main extends javax.swing.JFrame {
         if (existe)
             return false;
         else{return true;}
+    }
+    
+    public void ordenarlugares(Competencia competencia, Prueba prueba, int lugar){
+        boolean existelugar;
+        int actual = lugar;
+        Atleta anterior = null;
+        while(true){
+            existelugar = false;
+            for(Marca marca:marcas){
+                if(marca.getCompetencia().equals(competencia) && marca.getPrueba().equals(prueba)){
+                    if(marca.getLugar() == actual  && anterior == null){
+                        anterior = marca.getAtleta();
+                        existelugar = true;
+                        marca.setLugar(actual + 1);
+                        continue;
+                    }
+                    if(marca.getLugar() == actual && anterior != marca.getAtleta()){
+                        anterior = marca.getAtleta();
+                        existelugar = true;
+                        marca.setLugar(actual + 1);
+                        continue;
+                    }else if(marca.getLugar() != actual){
+                        continue;
+                    }else{
+                        existelugar =false;
+                        break;
+                    }
+                }
+            }
+            if(!existelugar){
+                break;
+            }else{
+                ++actual;
+            }
+        }
+    }
+    
+    public int getLugar(Competencia competencia, Prueba prueba, Atleta atleta, String medida,String marca){
+        int lugar = 1;
+        if(marcas.isEmpty()){
+            return lugar;
+        }
+        for(Marca marcanow: marcas){
+            if(marcanow.getCompetencia().equals(competencia) && 
+                marcanow.getPrueba().equals(prueba) &&
+                !marcanow.getAtleta().equals(atleta)){
+                if(medida.equals("tiempo")){
+                    int hrs = Integer.parseInt((marcanow.getMarca().substring(0,2)));
+                    int mins = Integer.parseInt((marcanow.getMarca().substring(3,5)));
+                    int segs = Integer.parseInt((marcanow.getMarca().substring(6)));
+                    
+                    int hrs2 = Integer.parseInt((marca.substring(0,2)));
+                    int mins2 = Integer.parseInt((marca.substring(3,5)));
+                    int segs2 = Integer.parseInt((marca.substring(6)));
+                    
+                    if(hrs2 > hrs){
+                        lugar = marcanow.getLugar();
+                        ordenarlugares(competencia,prueba,lugar);
+                    }else if (hrs2 == hrs && mins2 > mins ){
+                        lugar = marcanow.getLugar();
+                        ordenarlugares(competencia,prueba,lugar);
+                    }else  if( hrs2 == hrs &&  mins2 == mins && segs2 > segs){
+                        lugar = marcanow.getLugar();
+                        ordenarlugares(competencia,prueba,lugar);
+                    }else{
+                        lugar = (marcanow.getLugar()) + 1;
+                        ordenarlugares(competencia,prueba,lugar);
+                    }
+                }else if(medida.toLowerCase().equals("distancia")){
+                    String strentera = "";
+                    boolean buildstrentera = true;
+                    String strdecimal = "";
+                    for(int i = 0; i < marcanow.getMarca().length(); i++){
+                        if(marcanow.getMarca().charAt(i) == '.'){
+                           buildstrentera = false;
+                        }else if(buildstrentera){
+                            strentera += marcanow.getMarca().charAt(i);
+                        }else{
+                            strdecimal += marcanow.getMarca().charAt(i);
+                        }
+                    }
+                    String strentera2 = "";
+                    buildstrentera = true;
+                    String strdecimal2 = "";
+                    for(int i = 0; i < marca.length(); i++){
+                        if(marca.charAt(i) == '.'){
+                           buildstrentera = false;
+                        }else if(buildstrentera){
+                            strentera2 += marca.charAt(i);
+                        }else{
+                            strdecimal2 += marca.charAt(i);
+                        }
+                    }
+                    if(Integer.parseInt(strentera) < Integer.parseInt(strentera2)){
+                        lugar = marcanow.getLugar();
+                        ordenarlugares(competencia,prueba,lugar);
+                       
+                    }else if(Integer.parseInt(strentera) == Integer.parseInt(strentera2) &&
+                            Integer.parseInt(strdecimal) < Integer.parseInt(strdecimal2)){
+                        lugar = marcanow.getLugar();
+                        ordenarlugares(competencia,prueba,lugar);
+                    }else{
+                        lugar = marcanow.getLugar() + 1;
+                        ordenarlugares(competencia,prueba,lugar);
+                    }
+                }
+            }   
+        }
+        return lugar;
     }
       
     
@@ -2555,12 +2813,10 @@ public class main extends javax.swing.JFrame {
                 "ERROR", JOptionPane.ERROR_MESSAGE); 
         }
         else if(Integer.parseInt(jTextField20.getText()) <1 || Integer.parseInt(jTextField20.getText())>10000){
-            JOptionPane.showMessageDialog(null, "El dorsal debe estar entre 1 y !",
+            JOptionPane.showMessageDialog(null, "El dorsal debe estar entre 1 y 1000!",
                 "ERROR", JOptionPane.ERROR_MESSAGE);
-        }    
-                    
+        }     
         else{
-
             //identificacion atleta
             String identificacion = jComboBox17.getSelectedItem().toString();
             
@@ -2589,61 +2845,217 @@ public class main extends javax.swing.JFrame {
                 if(identificacion.equals(atleta.getIdentificacion())){
                     selected4 = atleta;
                 }
-            }
-                       
+            }    
             String medida = selected2.getMedida();
             String marca = jTextField19.getText();
             boolean flag = true;
-            if (medida.equals("distancia")){
+            if (medida.toLowerCase().equals("distancia")){
+;
                for(int i = 0; i<marca.length(); i++){
                    if (marca.charAt(i) == ':'){
                       JOptionPane.showMessageDialog(null, "La disciplina se mide en distancia!",
-                "ERROR", JOptionPane.ERROR_MESSAGE); 
+                      "ERROR", JOptionPane.ERROR_MESSAGE); 
                       flag = false;
                    }
                }     
-            }
-            
-            else{
+            }else{
                 for(int i = 0; i<marca.length(); i++){
                    if (marca.charAt(i) == '.'){
                       JOptionPane.showMessageDialog(null, "La disciplina se mide en tiempo!",
-                "ERROR", JOptionPane.ERROR_MESSAGE); 
+                      "ERROR", JOptionPane.ERROR_MESSAGE); 
                       flag = false;
                    }
                } 
-               
-            }
-                       
+            }      
             int idCompetencia = selected.getIdentificacion();
             int dorsal = Integer.parseInt(jTextField20.getText());
-            boolean flag2 = verificarDorsal(dorsal, idCompetencia, identificacion);
                         
             if(flag){
                 if(verificarParticipacion(dorsal,identificacion)){
-                    if(!flag2){
-                        Marca marcaObj = new Marca(selected,selected2,selected3,marca,dorsal,selected4);
+                    if(!verificarDorsal(dorsal, idCompetencia, identificacion,selected3)){
+                        int lugar = getLugar(selected,selected3, selected4, medida,marca);
+                        Marca marcaObj = new Marca(selected,selected2,selected3,marca,dorsal,selected4,lugar);
                         marcas.add(marcaObj);
                         JOptionPane.showMessageDialog(null, "Marca Registrada!",
-                    "ERROR", JOptionPane.INFORMATION_MESSAGE);
+                        "ERROR", JOptionPane.INFORMATION_MESSAGE);
                         jTextField20.setText("");
                         jTextField19.setText("");
-                    }
-                    else{
-                       JOptionPane.showMessageDialog(null, "Ese numero de dorsal ya se encuentra ocupado!",
-                "ERROR", JOptionPane.ERROR_MESSAGE); 
+                        for(Marca temp: marcas){
+                            System.out.println(temp.getAtleta().getNombreCompleto() + " " + temp.getLugar());
+                        }
+                    } else{
+                       JOptionPane.showMessageDialog(null, "Ese numero de dorsal ya se encuentra ocupado en esa"
+                               + " prueba!",
+                       "ERROR", JOptionPane.ERROR_MESSAGE); 
                     }
                 }
                 else{
-                  JOptionPane.showMessageDialog(null, "Ese numero de dorsal no corresponde al atleta!",
-                "ERROR", JOptionPane.ERROR_MESSAGE);   
+                   JOptionPane.showMessageDialog(null, "Ese numero de dorsal no corresponde al atleta!",
+                   "ERROR", JOptionPane.ERROR_MESSAGE);   
                 }              
-                
             }
-
         }
-        
     }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        jTabbedPane6.setSelectedIndex(1);
+        if(marcas.isEmpty()){
+            jTextArea2.setText("");
+            return;
+        }
+        jTextArea2.setText("");
+        int cont = 0;
+        ArrayList<Atleta> atletas = new ArrayList<>();
+        for(Marca marca:marcas){
+            if(cantatletas != 0){
+                if(cont == cantatletas){
+                    break;
+                }   
+            }
+            if(!atletas.contains(marca.getAtleta())){
+                jTextArea2.append("Atleta: " + marca.getAtleta().getNombreCompleto()+"\n");
+                ArrayList<Prueba> pruebas = new ArrayList<>();
+                ArrayList<Competencia> competencias = new ArrayList<>();
+                //ArrayList<ArrayList<Marca>> marcasatleta = new ArrayList<>();
+                
+                for(Marca marca2:marcas){
+                    if(marca2.getAtleta().getIdentificacion().equals(marca.getAtleta().getIdentificacion())){
+                        if(!pruebas.contains(marca2.getPrueba())){
+                            jTextArea2.append("Prueba: " + marca2.getPrueba().getNombre()+"\n");
+                            for(Marca marca3:marcas){
+                                if(marca3.getAtleta().getIdentificacion().equals(marca.getAtleta().getIdentificacion())
+                                   && marca3.getPrueba().equals(marca2.getPrueba())){
+                                    jTextArea2.append("Competencia: " + marca3.getCompetencia().getNombre() + "\n");
+                                    for(Marca marca4:marcas){
+                                        if(marca4.getAtleta().getIdentificacion()
+                                            .equals(marca.getAtleta().getIdentificacion()) &&
+                                            marca4.getCompetencia().equals(marca3.getCompetencia())&&
+                                            marca4.getPrueba().getNombre()
+                                            .equals(marca2.getPrueba().getNombre())){
+                                            jTextArea2.append("Marca:  " + marca4.getMarca()  + "  Lugar: " + marca4.getLugar()+ "\n");
+                                        }
+                                    }
+                                    jTextArea2.append("\n");
+                                }
+                            }
+                            jTextArea2.append("\n");
+                            pruebas.add(marca2.getPrueba()); 
+                        }   
+                    }
+                }
+                jTextArea2.append("\n");
+                atletas.add(marca.getAtleta());
+            }
+            cont++;
+        }  
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+        jTabbedPane6.setSelectedIndex(2);
+        if(marcas.isEmpty()){
+            jTextArea4.setText("");
+            return;
+        }
+        jTextArea4.setText("");
+        int cont = 0;
+        ArrayList<Competencia> competencias = new ArrayList<>();
+        for(Marca marca:marcas){
+            if(cantatletas != 0){
+                if(cont == cantatletas){
+                    break;
+                }   
+            }
+            if(!competencias.contains(marca.getCompetencia())){
+                jTextArea4.append("Competencia: " + marca.getCompetencia().getNombre() + "\n");
+                ArrayList<Prueba> pruebas = new ArrayList<>();
+                for(Marca marca2:marcas){
+                    if(!pruebas.contains(marca2.getPrueba())){
+                        jTextArea4.append("Prueba: " + marca2.getPrueba().getNombre() + "\n");
+                        int lugarbuscar = 1;
+                        while(true){
+                            boolean existe = false;
+                            for(Marca marca3:marcas){
+                                if(marca3.getLugar() == lugarbuscar &&
+                                marca3.getCompetencia().getNombre().equals(marca.getCompetencia().getNombre()) &&
+                                marca3.getPrueba().getNombre().equals(marca2.getPrueba().getNombre())){
+                                    jTextArea4.append("Atleta: " + 
+                                    marca3.getAtleta().getNombreCompleto() + 
+                                    "  Dorsal:  " + marca3.getDorsal() +
+                                    "  Marca:  " + marca3.getMarca() + 
+                                    "  Lugar:  " + lugarbuscar + "\n" );
+                                    existe = true;
+                                }
+                            }
+                            if(!existe){
+                                break;
+                            }else{
+                                lugarbuscar++;
+                            }
+                        }
+                        pruebas.add(marca2.getPrueba());
+                    }
+                }
+                competencias.add(marca.getCompetencia());
+            }
+            cont++;
+        }
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        jTabbedPane6.setSelectedIndex(3);
+        if(marcas.isEmpty()){
+            jTextArea5.setText("");
+            return;
+        }
+        jTextArea5.setText("");
+        int cont = 0;
+        ArrayList<Atleta> atletas = new ArrayList<>();
+        for(Marca marca:marcas){
+            if(cantatletas != 0){
+                if(cont == cantatletas){
+                    break;
+                }   
+            }
+            if(!atletas.contains(marca.getAtleta())){
+                jTextArea5.append("Atleta: " + marca.getAtleta().getNombreCompleto()+"\n");
+                ArrayList<Prueba> pruebas = new ArrayList<>();
+                ArrayList<Competencia> competencias = new ArrayList<>();
+                //ArrayList<ArrayList<Marca>> marcasatleta = new ArrayList<>();
+                
+                for(Marca marca2:marcas){
+                    if(marca2.getAtleta().getIdentificacion().equals(marca.getAtleta().getIdentificacion())){
+                        if(!pruebas.contains(marca2.getPrueba())){
+                            jTextArea5.append("Prueba: " + marca2.getPrueba().getNombre()+"\n");
+                            for(Marca marca3:marcas){
+                                if(marca3.getAtleta().getIdentificacion().equals(marca.getAtleta().getIdentificacion())
+                                   && marca3.getPrueba().equals(marca2.getPrueba())){
+                                    jTextArea5.append("Competencia: " + marca3.getCompetencia().getNombre() + "\n");
+                                    for(Marca marca4:marcas){
+                                        if(marca4.getAtleta().getIdentificacion()
+                                            .equals(marca.getAtleta().getIdentificacion()) &&
+                                            marca4.getCompetencia().equals(marca3.getCompetencia())&&
+                                            marca4.getPrueba().getNombre()
+                                            .equals(marca2.getPrueba().getNombre())){
+                                            if(marca4.getLugar() == 1 || marca4.getLugar() == 1 || marca4.getLugar() == 3){
+                                                jTextArea5.append("Marca:  " + marca4.getMarca() +
+                                                                  "  Lugar: " + marca4.getLugar() + "\n");
+                                            }
+                                        }
+                                    }
+                                    jTextArea5.append("\n");
+                                }
+                            }
+                            jTextArea5.append("\n");
+                            pruebas.add(marca2.getPrueba()); 
+                        }   
+                    }
+                }
+                jTextArea5.append("\n");
+                atletas.add(marca.getAtleta());
+            }
+            cont++;
+        }  
+    }//GEN-LAST:event_jButton16ActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -2708,7 +3120,11 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -2799,14 +3215,30 @@ public class main extends javax.swing.JFrame {
     private javax.swing.JList<String> jList2;
     private javax.swing.JList<String> jList3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
+    private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
     private javax.swing.JTabbedPane jTabbedPane4;
     private javax.swing.JTabbedPane jTabbedPane5;
+    private javax.swing.JTabbedPane jTabbedPane6;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JTextArea jTextArea4;
+    private javax.swing.JTextArea jTextArea5;
+    private javax.swing.JTextArea jTextArea6;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;

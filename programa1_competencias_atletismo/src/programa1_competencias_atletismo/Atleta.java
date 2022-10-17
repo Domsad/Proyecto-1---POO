@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-public class Atleta extends Visor {
+public class Atleta{
     
     private String nombre,apellido1,apellido2,identificacion,pais,
                    fechanacimiento,correo,telefono;
