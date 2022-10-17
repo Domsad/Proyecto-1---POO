@@ -5,7 +5,6 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import javax.swing.JTextArea;
 import programa1_competencias_atletismo.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,6 +12,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.*;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
+
 
 public class main extends javax.swing.JFrame {
     private RegistroMarcas mainregister = new RegistroMarcas();
@@ -22,6 +26,8 @@ public class main extends javax.swing.JFrame {
     private DefaultListModel modelopruebasDisciplina = new DefaultListModel();
     private int secuencialCompetencia = 1;
     private int cantatletas = 0;
+    private Visor visorgeneral;
+
     
     public main() {
         initComponents();
@@ -41,21 +47,13 @@ public class main extends javax.swing.JFrame {
         mainregister.getRegistroDisciplinas().add(new Disciplina("Saltos","Tiempo"));
         mainregister.getRegistroDisciplinas().add(new Disciplina("Marcha","Tiempo"));
         mainregister.getRegistroDisciplinas().add(new Disciplina("Salto","Distancia"));
-        Disciplina temp = new Disciplina("Lanzamiento","Distancia");
-        temp.getListaPruebas().add(new Prueba("100m","Ambos","Master"));
-        mainregister.getRegistroDisciplinas().add(temp);
-        Atleta atl1 = new Atleta("Alonso","Casares","Aguirre","123456789"
-        ,"CRC","10/11/2004","alonso@gmail.com","12345678912345678900");
-        mainregister.agregarAtleta(atl1);
-        Atleta atl2 = new Atleta("Harlen","Viquez","Monge","987654321"
-        ,"CRC","10/11/2004","alonso@gmail.com","12345678912345678900");
-        mainregister.agregarAtleta(atl2);
-        Atleta atl3 = new Atleta("Mariana","Navarro","Carillo","123123123"
-        ,"CRC","10/11/2004","alonso@gmail.com","12345678912345678900");
-        mainregister.agregarAtleta(atl3);
-        Competencia temp2 = new Competencia("Competencia1",1,"CRC","Cartago","10/11/2004","11/11/2004");
-        temp2.getRegistroDisciplinas().add(temp);
-        mainregister.getRegistroCompetencias().add(temp2);
+        mainregister.getRegistroDisciplinas().add(new Disciplina("Lanzamiento","Distancia"));
+
+        //Crear el Visor con constantes
+        visorgeneral = new Visor("Sebastian","Nose","Nose"
+                ,"111222333","CRC","10/11/2000","dominiccasares10@gmail.com"
+                ,"88888888888888888",mainregister.getRegistroAtletas());
+        
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -1416,6 +1414,11 @@ public class main extends javax.swing.JFrame {
         jButton16.setBounds(0, 140, 120, 28);
 
         jButton19.setText("Prueba");
+        jButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton19ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton19);
         jButton19.setBounds(0, 200, 120, 28);
 
@@ -2995,6 +2998,7 @@ public class main extends javax.swing.JFrame {
                         pruebas.add(marca2.getPrueba());
                     }
                 }
+                jTextArea4.append("\n");
                 competencias.add(marca.getCompetencia());
             }
             cont++;
@@ -3036,7 +3040,7 @@ public class main extends javax.swing.JFrame {
                                             marca4.getCompetencia().equals(marca3.getCompetencia())&&
                                             marca4.getPrueba().getNombre()
                                             .equals(marca2.getPrueba().getNombre())){
-                                            if(marca4.getLugar() == 1 || marca4.getLugar() == 1 || marca4.getLugar() == 3){
+                                            if(marca4.getLugar() == 1 || marca4.getLugar() == 2 || marca4.getLugar() == 3){
                                                 jTextArea5.append("Marca:  " + marca4.getMarca() +
                                                                   "  Lugar: " + marca4.getLugar() + "\n");
                                             }
@@ -3054,8 +3058,81 @@ public class main extends javax.swing.JFrame {
                 atletas.add(marca.getAtleta());
             }
             cont++;
-        }  
+        }
+        
+        //Proceso para enviar el correo electrónico al visor con los datos
+        String host = "smtp.gmail.com";
+        String user = "mariana.viquez.monge@gmail.com";
+        String password = "awwqqjetprctvthp";
+        String to = visorgeneral.getCorreo();
+        Properties props = new Properties();
+        props.put("mail.smtp.host", host);
+        props.put("mail.smtp.port", "25"); 
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.ssl.protocols", "TLSv1.2");
+        props.put("mail.smtp.starttls.enable", "true");
+        Session session = Session.getDefaultInstance(props,  new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(user,password);
+            }
+        });
+        try {
+            MimeMessage message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(user));
+            message.addRecipient(Message.RecipientType.TO,new InternetAddress(to));
+            message.setSubject("Reporte de Atletas");
+            message.setText(jTextArea5.getText());
+            Transport.send(message);
+        }catch(MessagingException e) {e.printStackTrace();}
+                
     }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
+        jTabbedPane6.setSelectedIndex(4);
+        if(marcas.isEmpty()){
+            jTextArea6.setText("");
+            return;
+        }
+        jTextArea6.setText("");
+        int cont = 0;
+        ArrayList<Prueba> pruebas = new ArrayList<>();
+        for(Marca marca:marcas){
+            if(cantatletas != 0){
+                if(cont == cantatletas){
+                    break;
+                }   
+            }
+            if(!pruebas.contains(marca.getPrueba())){
+                jTextArea6.append("Prueba: " + marca.getPrueba().getNombre() + "\n");
+                ArrayList<Atleta> atletas = new ArrayList<>();
+                for(Marca marca2:marcas){
+                    if(marca2.getPrueba().getNombre().equals(marca.getPrueba().getNombre())){
+                        int lugarbuscar = 1;
+                        while(true){
+                            boolean existe = false;
+                            for(Marca marca3:marcas){
+                                if(marca3.getLugar() == lugarbuscar &&
+                                marca3.getPrueba().getNombre().equals(marca2.getPrueba().getNombre())){
+                                    jTextArea6.append("Atleta: " + marca2.getAtleta().getNombreCompleto() +
+                                    "  Pais Origen: " + marca2.getAtleta().getPais() + "  Marca: " + marca2.getMarca() +
+                                    "  Competencia: " +  marca2.getCompetencia().getNombre() + "  Lugar: " + marca2.getLugar()
+                                    + "\n");
+                                }
+                            }
+                            if(!existe){
+                                break;
+                            }else{
+                                lugarbuscar++;
+                            }
+                        }
+                    }
+                }
+                jTextArea6.append("\n");
+                pruebas.add(marca.getPrueba());
+            }
+            cont++;
+        }
+    }//GEN-LAST:event_jButton19ActionPerformed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
